@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Mate - TV Shows</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">Cine Mate</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movie.html">Movies</a></li>
+                    <li><a href="tvshows.html" class="active">TV Shows</a></li>
+                    <li><a href="favourites.html">Favourites</a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search TV shows..." class="search-input">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header tvshows-header">
+        <h1>TV Shows</h1>
+        <p>Binge-worthy series and episodes</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="category-filters">
+        <button class="category-btn active">All</button>
+        <button class="category-btn">Action</button>
+        <button class="category-btn">Comedy</button>
+        <button class="category-btn">Drama</button>
+        <button class="category-btn">Sci-Fi</button>
+        <button class="category-btn">Thriller</button>
+        <button class="category-btn">Animation</button>
+    </div>
+
+    <!-- TV Shows Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="movie-grid" id="tvshows-grid">
+                <!-- Drama TV Shows -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-breaking-bad">
+                        <span>Drama</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.5</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Breaking Bad
+                            <span class="movie-year">2008-2013</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.5</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-wire">
+                        <span>Drama</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.2</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            The Wire
+                            <span class="movie-year">2002-2008</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.2</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-succession">
+                        <span>Drama</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Succession
+                            <span class="movie-year">2018-2023</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sci-Fi TV Shows -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-stranger-things">
+                        <span>Sci-Fi</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.1</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Stranger Things
+                            <span class="movie-year">2016-2025</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.1</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-black-mirror">
+                        <span>Sci-Fi</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.8</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Black Mirror
+                            <span class="movie-year">2011-2023</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-expanse">
+                        <span>Sci-Fi</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.7</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            The Expanse
+                            <span class="movie-year">2015-2022</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comedy TV Shows -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-office">
+                        <span>Comedy</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.4</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            The Office
+                            <span class="movie-year">2005-2013</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.4</span>
+                            <span class="movie-genre">Comedy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-brooklyn">
+                        <span>Comedy</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Brooklyn Nine-Nine
+                            <span class="movie-year">2013-2021</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="movie-genre">Comedy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-ted-lasso">
+                        <span>Comedy</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.7</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Ted Lasso
+                            <span class="movie-year">2020-2023</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
+                            <span class="movie-genre">Comedy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animation TV Shows -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-rick-morty">
+                        <span>Animation</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.3</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Rick and Morty
+                            <span class="movie-year">2013-2024</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.3</span>
+                            <span class="movie-genre">Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-bojack">
+                        <span>Animation</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            BoJack Horseman
+                            <span class="movie-year">2014-2020</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="movie-genre">Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-arcane">
+                        <span>Animation</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.6</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Arcane
+                            <span class="movie-year">2021-2024</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.6</span>
+                            <span class="movie-genre">Animation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Cine Mate</h3>
+                <p>A movie and TV show discovery app built as part of the Web Architectures course. JavaScript features coming week by week!</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>PAGES</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie.html">Movies</a></li>
+                        <li><a href="tvshows.html">TV Shows</a></li>
+                        <li><a href="favourites.html">Favourites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">GitHub Repo</a></li>
+                        <li><a href="#">TMDB API</a></li>
+                        <li><a href="#">MDN Docs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Cine Mate. All rights reserved. </p>
+        </div>
+    </footer>
+</body>
+</html>

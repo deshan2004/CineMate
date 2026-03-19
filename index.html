@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Mate - Movie & TV Show Discovery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">Cine Mate</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="movie.html">Movies</a></li>
+                    <li><a href="tvshows.html">TV Shows</a></li>
+                    <li><a href="favourites.html">Favourites</a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover great movies & shows</h1>
+            <p class="hero-description">Browse thousands of titles, save your favourites, and never run out of things to watch.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">MOVIES</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">TV SHOWS</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">GENRES</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Filters -->
+    <div class="filters">
+        <div class="filters-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for a movie or TV show..">
+            </div>
+            <select class="filter-select">
+                <option>All Genres</option>
+                <option>Action</option>
+                <option>Comedy</option>
+                <option>Drama</option>
+                <option>Horror</option>
+                <option>Sci-Fi</option>
+                <option>Thriller</option>
+            </select>
+            <select class="filter-select">
+                <option>All Years</option>
+                <option>2024</option>
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+            </select>
+            <button class="search-btn">Search</button>
+        </div>
+    </div>
+
+    <!-- Featured Section -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured This Week</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-poster interstellar"></div>
+                    <div class="featured-info">
+                        <h3>Interstellar</h3>
+                        <p>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival. A breathtaking journey through time and love.</p>
+                        <div class="featured-buttons">
+                            <button class="btn-primary">View Details</button>
+                            <button class="btn-secondary"><i class="far fa-heart"></i> Favourite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trending Now</h2>
+                <a href="#" class="view-all">View all →</a>
+            </div>
+            <div class="trending-tabs">
+                <span class="tab active">TRENDING</span>
+                <span class="tab">NEW</span>
+                <span class="tab">TOP</span>
+            </div>
+            <div class="movie-grid" id="trending-grid">
+                <!-- Trending Movies -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-dune">
+                        <span>TRENDING</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Dune: Part Two
+                            <span class="movie-year">2024</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-oppenheimer">
+                        <span>TRENDING</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Oppenheimer
+                            <span class="movie-year">2023</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-dark-knight">
+                        <span>TRENDING</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.0</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            The Dark Knight
+                            <span class="movie-year">2008</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.0</span>
+                            <span class="movie-genre">Action</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-parasite">
+                        <span>TOP</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Parasite
+                            <span class="movie-year">2019</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+                            <span class="movie-genre">Thriller</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-inception">
+                        <span>TOP</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.8</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Inception
+                            <span class="movie-year">2010</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Cine Mate</h3>
+                <p>A movie and TV show discovery app built as part of the Web Architectures course. JavaScript features coming week by week!</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>PAGES</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie.html">Movies</a></li>
+                        <li><a href="tvshows.html">TV Shows</a></li>
+                        <li><a href="favourites.html">Favourites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">GitHub Repo</a></li>
+                        <li><a href="#">TMDB API</a></li>
+                        <li><a href="#">MDN Docs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Cine Mate. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

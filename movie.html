@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Mate - Movies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">Cine Mate</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movie.html" class="active">Movies</a></li>
+                    <li><a href="tvshows.html">TV Shows</a></li>
+                    <li><a href="favourites.html">Favourites</a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search movies..." class="search-input">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header movies-header">
+        <h1>Movies</h1>
+        <p>Discover the latest and greatest films</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="category-filters">
+        <button class="category-btn active">All</button>
+        <button class="category-btn">Action</button>
+        <button class="category-btn">Comedy</button>
+        <button class="category-btn">Drama</button>
+        <button class="category-btn">Horror</button>
+        <button class="category-btn">Sci-Fi</button>
+        <button class="category-btn">Thriller</button>
+        <button class="category-btn">Animation</button>
+    </div>
+
+    <!-- Movies Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="movie-grid" id="movies-grid">
+                <!-- Action Movies -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-dark-knight">
+                        <span>Action</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.0</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            The Dark Knight
+                            <span class="movie-year">2008</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 9.0</span>
+                            <span class="movie-genre">Action</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-mad-max">
+                        <span>Action</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.8</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Mad Max: Fury Road
+                            <span class="movie-year">2015</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                            <span class="movie-genre">Action</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-john-wick">
+                        <span>Action</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.7</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            John Wick
+                            <span class="movie-year">2014</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
+                            <span class="movie-genre">Action</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sci-Fi Movies -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-inception">
+                        <span>Sci-Fi</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.8</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Inception
+                            <span class="movie-year">2010</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-dune">
+                        <span>Sci-Fi</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Dune: Part Two
+                            <span class="movie-year">2024</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-blade-runner">
+                        <span>Sci-Fi</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.6</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Blade Runner 2049
+                            <span class="movie-year">2017</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.6</span>
+                            <span class="movie-genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drama Movies -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-oppenheimer">
+                        <span>Drama</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Oppenheimer
+                            <span class="movie-year">2023</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-parasite">
+                        <span>Drama</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Parasite
+                            <span class="movie-year">2019</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-shawshank">
+                        <span>Drama</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.3</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            The Shawshank Redemption
+                            <span class="movie-year">1994</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.3</span>
+                            <span class="movie-genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thriller Movies -->
+                <div class="movie-card">
+                    <div class="movie-poster poster-gone-girl">
+                        <span>Thriller</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.4</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Gone Girl
+                            <span class="movie-year">2014</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.4</span>
+                            <span class="movie-genre">Thriller</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-se7en">
+                        <span>Thriller</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.2</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Se7en
+                            <span class="movie-year">1995</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.2</span>
+                            <span class="movie-genre">Thriller</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster poster-prisoners">
+                        <span>Thriller</span>
+                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.1</span>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">
+                            Prisoners
+                            <span class="movie-year">2013</span>
+                        </div>
+                        <div class="movie-meta">
+                            <span class="movie-rating"><i class="fas fa-star"></i> 8.1</span>
+                            <span class="movie-genre">Thriller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Cine Mate</h3>
+                <p>A movie and TV show discovery app built as part of the Web Architectures course. JavaScript features coming week by week!</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>PAGES</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie.html">Movies</a></li>
+                        <li><a href="tvshows.html">TV Shows</a></li>
+                        <li><a href="favourites.html">Favourites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">GitHub Repo</a></li>
+                        <li><a href="#">TMDB API</a></li>
+                        <li><a href="#">MDN Docs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Cine Mate. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
