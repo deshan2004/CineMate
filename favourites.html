@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-left">
@@ -27,171 +26,206 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <div class="page-header favourites-header">
         <h1>Your Favourites</h1>
         <p>Movies and shows you've saved</p>
     </div>
 
-    <!-- Favourites Grid -->
     <section class="content-section">
         <div class="container">
-            <div class="movie-grid" id="favourites-grid">
-                <!-- Favourite Movies -->
+            <div class="movie-grid">
                 <div class="movie-card">
-                    <div class="movie-poster poster-dark-knight">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.0</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            The Dark Knight
-                            <span class="movie-year">2008</span>
+                    <a href="movie-detail.html?id=dark-knight" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="The Dark Knight">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.0</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 9.0</span>
-                            <span class="movie-genre">Action</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                The Dark Knight
+                                <span class="movie-year">2008</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 9.0</span>
+                                <span class="movie-genre">Action</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="movie-card">
-                    <div class="movie-poster poster-inception">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.8</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            Inception
-                            <span class="movie-year">2010</span>
+                    <a href="movie-detail.html?id=inception" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" alt="Inception">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.8</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
-                            <span class="movie-genre">Sci-Fi</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                Inception
+                                <span class="movie-year">2010</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                                <span class="movie-genre">Sci-Fi</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="movie-card">
-                    <div class="movie-poster poster-oppenheimer">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            Oppenheimer
-                            <span class="movie-year">2023</span>
+                    <a href="movie-detail.html?id=oppenheimer" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Oppenheimer">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.9</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
-                            <span class="movie-genre">Drama</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                Oppenheimer
+                                <span class="movie-year">2023</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                                <span class="movie-genre">Drama</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Favourite TV Shows -->
-                <div class="movie-card">
-                    <div class="movie-poster poster-breaking-bad">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.5</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            Breaking Bad
-                            <span class="movie-year">2008-2013</span>
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 9.5</span>
-                            <span class="movie-genre">Drama</span>
-                            <i class="fas fa-heart fav-icon"></i>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="movie-card">
-                    <div class="movie-poster poster-stranger-things">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.1</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            Stranger Things
-                            <span class="movie-year">2016-2025</span>
+                    <a href="tv-detail.html?id=breaking-bad" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Breaking Bad">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.5</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 9.1</span>
-                            <span class="movie-genre">Sci-Fi</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                Breaking Bad
+                                <span class="movie-year">2008-2013</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 9.5</span>
+                                <span class="movie-genre">Drama</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="movie-card">
-                    <div class="movie-poster poster-office">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.4</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            The Office
-                            <span class="movie-year">2005-2013</span>
+                    <a href="tv-detail.html?id=stranger-things" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.1</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 9.4</span>
-                            <span class="movie-genre">Comedy</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                Stranger Things
+                                <span class="movie-year">2016-2025</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 9.1</span>
+                                <span class="movie-genre">Sci-Fi</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="movie-card">
-                    <div class="movie-poster poster-parasite">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            Parasite
-                            <span class="movie-year">2019</span>
+                    <a href="tv-detail.html?id=the-office" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/qWnJwZvXpjp3RcUxtGQDHnQHtji.jpg" alt="The Office">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 9.4</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
-                            <span class="movie-genre">Thriller</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                The Office
+                                <span class="movie-year">2005-2013</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 9.4</span>
+                                <span class="movie-genre">Comedy</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="movie-card">
-                    <div class="movie-poster poster-dune">
-                        <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
-                        <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            Dune: Part Two
-                            <span class="movie-year">2024</span>
+                    <a href="movie-detail.html?id=parasite" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
+                            </div>
                         </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
-                            <span class="movie-genre">Sci-Fi</span>
-                            <i class="fas fa-heart fav-icon"></i>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                Parasite
+                                <span class="movie-year">2019</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+                                <span class="movie-genre">Thriller</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+
+                <div class="movie-card">
+                    <a href="movie-detail.html?id=dune" class="movie-link">
+                        <div class="movie-poster">
+                            <img src="https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg" alt="Dune: Part Two">
+                            <div class="poster-overlay">
+                                <span><i class="fas fa-heart" style="color: #ff4444;"></i> Favourite</span>
+                                <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.5</span>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <div class="movie-title">
+                                Dune: Part Two
+                                <span class="movie-year">2024</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+                                <span class="movie-genre">Sci-Fi</span>
+                                <i class="fas fa-heart fav-icon active"></i>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-info">
                 <h3>Cine Mate</h3>
-                <p>A movie and TV show discovery app built as part of the Web Architectures course. JavaScript features coming week by week!</p>
+                <p>A movie and TV show discovery app built as part of the Web Architectures course. Explore the latest movies and TV shows with beautiful visuals and detailed information.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-section">
@@ -214,7 +248,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Cine Mate. All rights reserved. </p>
+            <p>&copy; 2024 Cine Mate. All rights reserved.</p>
         </div>
     </footer>
 </body>

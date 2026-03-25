@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Mate - TV Show Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">Cine Mate</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movie.html">Movies</a></li>
+                    <li><a href="tvshows.html">TV Shows</a></li>
+                    <li><a href="favourites.html">Favourites</a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+        </div>
+    </nav>
+
+    <section class="movie-detail-section">
+        <div class="container">
+            <div class="movie-detail-container">
+                <div class="movie-detail-poster">
+                    <img src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Breaking Bad">
+                </div>
+                <div class="movie-detail-info">
+                    <h1>Breaking Bad</h1>
+                    <div class="detail-meta">
+                        <span class="detail-year">2008-2013</span>
+                        <span class="detail-rating"><i class="fas fa-star"></i> 9.5</span>
+                        <span class="detail-genre">Drama</span>
+                        <span class="detail-seasons">5 Seasons</span>
+                        <span class="detail-episodes">62 Episodes</span>
+                    </div>
+                    <div class="detail-plot">
+                        <h3>Plot</h3>
+                        <p>A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future. With his former student, Jesse Pinkman, they create a drug empire that puts them at odds with dangerous cartels and law enforcement.</p>
+                    </div>
+                    <div class="detail-cast">
+                        <h3>Cast</h3>
+                        <div class="cast-list">
+                            <span>Bryan Cranston</span>
+                            <span>Aaron Paul</span>
+                            <span>Anna Gunn</span>
+                            <span>Dean Norris</span>
+                            <span>Betsy Brandt</span>
+                            <span>RJ Mitte</span>
+                            <span>Giancarlo Esposito</span>
+                        </div>
+                    </div>
+                    <div class="detail-director">
+                        <h3>Creators</h3>
+                        <p>Vince Gilligan</p>
+                    </div>
+                    <div class="detail-buttons">
+                        <a href="#" class="btn-primary watch-trailer" id="watchTrailerBtn"><i class="fas fa-play"></i> Watch Trailer</a>
+                        <a href="#" class="btn-secondary"><i class="far fa-heart"></i> Add to Favourites</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trailer Modal -->
+            <div id="trailerModal" class="modal">
+                <div class="modal-content trailer-modal">
+                    <span class="close-modal">&times;</span>
+                    <div class="trailer-container">
+                        <iframe id="trailerIframe" src="https://www.youtube.com/embed/HhesaQXLuRY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seasons Section -->
+            <div class="seasons-section">
+                <h2 class="section-title">Seasons</h2>
+                <div class="seasons-grid">
+                    <div class="season-card">
+                        <div class="season-number">Season 1</div>
+                        <div class="season-episodes">7 Episodes</div>
+                        <div class="season-year">2008</div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-number">Season 2</div>
+                        <div class="season-episodes">13 Episodes</div>
+                        <div class="season-year">2009</div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-number">Season 3</div>
+                        <div class="season-episodes">13 Episodes</div>
+                        <div class="season-year">2010</div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-number">Season 4</div>
+                        <div class="season-episodes">13 Episodes</div>
+                        <div class="season-year">2011</div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-number">Season 5</div>
+                        <div class="season-episodes">16 Episodes</div>
+                        <div class="season-year">2012-2013</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar TV Shows Section -->
+            <div class="similar-movies">
+                <h2 class="section-title">You Might Also Like</h2>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <a href="tv-detail.html?id=the-wire" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/4mxUj5EsY3T4b7wFq5m7qVKz8yG.jpg" alt="The Wire">
+                                <div class="poster-overlay">
+                                    <span class="badge">Drama</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    The Wire
+                                    <span class="movie-year">2002-2008</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 9.2</span>
+                                    <span class="movie-genre">Drama</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="movie-card">
+                        <a href="tv-detail.html?id=succession" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/9yVYgrGJqRMbS6Jj8z5y5b8hqMp.jpg" alt="Succession">
+                                <div class="poster-overlay">
+                                    <span class="badge">Drama</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 8.9</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    Succession
+                                    <span class="movie-year">2018-2023</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                                    <span class="movie-genre">Drama</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="movie-card">
+                        <a href="tv-detail.html?id=the-office" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/qWnJwZvXpjp3RcUxtGQDHnQHtji.jpg" alt="The Office">
+                                <div class="poster-overlay">
+                                    <span class="badge">Comedy</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    The Office
+                                    <span class="movie-year">2005-2013</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 9.4</span>
+                                    <span class="movie-genre">Comedy</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="movie-card">
+                        <a href="tv-detail.html?id=rick-morty" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/8kOWDBK6XlPUzckyHx43kJLQlFk.jpg" alt="Rick and Morty">
+                                <div class="poster-overlay">
+                                    <span class="badge">Animation</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 9.3</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    Rick and Morty
+                                    <span class="movie-year">2013-2024</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 9.3</span>
+                                    <span class="movie-genre">Animation</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Cine Mate</h3>
+                <p>A movie and TV show discovery app built as part of the Web Architectures course. Explore the latest movies and TV shows with beautiful visuals and detailed information.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>PAGES</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie.html">Movies</a></li>
+                        <li><a href="tvshows.html">TV Shows</a></li>
+                        <li><a href="favourites.html">Favourites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">GitHub Repo</a></li>
+                        <li><a href="#">TMDB API</a></li>
+                        <li><a href="#">MDN Docs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cine Mate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .trailer-modal {
+            max-width: 900px;
+            width: 90%;
+            background: transparent;
+            box-shadow: none;
+        }
+        
+        .trailer-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .trailer-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 40px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        /* Seasons Section */
+        .seasons-section {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .seasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .season-card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .season-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(187, 134, 252, 0.2);
+        }
+        
+        .season-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .season-episodes {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.3rem;
+        }
+        
+        .season-year {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Movie Detail Styles */
+        .movie-detail-section {
+            padding: 4rem 30px;
+            background: var(--background);
+        }
+        
+        .movie-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            background: var(--surface);
+            border-radius: 30px;
+            padding: 2rem;
+            border: var(--border);
+        }
+        
+        .movie-detail-poster {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .movie-detail-poster img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .movie-detail-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .movie-detail-info h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .detail-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-meta span {
+            background: var(--surface-light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-plot h3,
+        .detail-cast h3,
+        .detail-director h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .detail-plot p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cast-list span {
+            background: var(--surface-light);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-director p {
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .detail-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .watch-trailer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .similar-movies {
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .movie-detail-container {
+                padding: 1.5rem;
+            }
+            
+            .movie-detail-info h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+  
+</body>
+</html>

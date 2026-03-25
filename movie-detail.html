@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Mate - Movie Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">Cine Mate</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movie.html">Movies</a></li>
+                    <li><a href="tvshows.html">TV Shows</a></li>
+                    <li><a href="favourites.html">Favourites</a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+        </div>
+    </nav>
+
+    <section class="movie-detail-section">
+        <div class="container">
+            <div class="movie-detail-container">
+                <div class="movie-detail-poster">
+                    <img id="detailPoster" src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="Movie Poster">
+                </div>
+                <div class="movie-detail-info">
+                    <h1 id="detailTitle">The Dark Knight</h1>
+                    <div class="detail-meta">
+                        <span class="detail-year" id="detailYear">2008</span>
+                        <span class="detail-rating"><i class="fas fa-star"></i> <span id="detailRating">9.0</span></span>
+                        <span class="detail-genre" id="detailGenre">Action</span>
+                        <span class="detail-duration">2h 32min</span>
+                    </div>
+                    <div class="detail-plot">
+                        <h3>Plot</h3>
+                        <p id="detailPlot">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
+                    </div>
+                    <div class="detail-cast">
+                        <h3>Cast</h3>
+                        <div class="cast-list">
+                            <span>Christian Bale</span>
+                            <span>Heath Ledger</span>
+                            <span>Aaron Eckhart</span>
+                            <span>Michael Caine</span>
+                            <span>Gary Oldman</span>
+                        </div>
+                    </div>
+                    <div class="detail-director">
+                        <h3>Director</h3>
+                        <p>Christopher Nolan</p>
+                    </div>
+                    <div class="detail-buttons">
+                        <a href="#" class="btn-primary watch-trailer" id="watchTrailerBtn"><i class="fas fa-play"></i> Watch Trailer</a>
+                        <a href="#" class="btn-secondary"><i class="far fa-heart"></i> Add to Favourites</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="trailerModal" class="modal">
+                <div class="modal-content trailer-modal">
+                    <span class="close-modal">&times;</span>
+                    <div class="trailer-container">
+                        <iframe id="trailerIframe" src="https://www.youtube.com/embed/EXeTwQWrcwY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="similar-movies">
+                <h2 class="section-title">You Might Also Like</h2>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <a href="movie-detail.html?id=inception" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" alt="Inception">
+                                <div class="poster-overlay">
+                                    <span class="badge">Sci-Fi</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 8.8</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    Inception
+                                    <span class="movie-year">2010</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                                    <span class="movie-genre">Sci-Fi</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="movie-card">
+                        <a href="movie-detail.html?id=oppenheimer" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Oppenheimer">
+                                <div class="poster-overlay">
+                                    <span class="badge">Drama</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 8.9</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    Oppenheimer
+                                    <span class="movie-year">2023</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
+                                    <span class="movie-genre">Drama</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="movie-card">
+                        <a href="movie-detail.html?id=mad-max" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg" alt="Mad Max: Fury Road">
+                                <div class="poster-overlay">
+                                    <span class="badge">Action</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 8.8</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    Mad Max: Fury Road
+                                    <span class="movie-year">2015</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
+                                    <span class="movie-genre">Action</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="movie-card">
+                        <a href="movie-detail.html?id=john-wick" class="movie-link">
+                            <div class="movie-poster">
+                                <img src="https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg" alt="John Wick">
+                                <div class="poster-overlay">
+                                    <span class="badge">Action</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 8.7</span>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    John Wick
+                                    <span class="movie-year">2014</span>
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
+                                    <span class="movie-genre">Action</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Cine Mate</h3>
+                <p>A movie and TV show discovery app built as part of the Web Architectures course. Explore the latest movies and TV shows with beautiful visuals and detailed information.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>PAGES</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movie.html">Movies</a></li>
+                        <li><a href="tvshows.html">TV Shows</a></li>
+                        <li><a href="favourites.html">Favourites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">GitHub Repo</a></li>
+                        <li><a href="#">TMDB API</a></li>
+                        <li><a href="#">MDN Docs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cine Mate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .trailer-modal {
+            max-width: 900px;
+            width: 90%;
+            background: transparent;
+            box-shadow: none;
+        }
+        
+        .trailer-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .trailer-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 40px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .movie-detail-section {
+            padding: 4rem 30px;
+            background: var(--background);
+        }
+        
+        .movie-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: var(--surface);
+            border-radius: 30px;
+            padding: 2rem;
+            border: var(--border);
+        }
+        
+        .movie-detail-poster {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .movie-detail-poster img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .movie-detail-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .movie-detail-info h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .detail-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-meta span {
+            background: var(--surface-light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-plot h3,
+        .detail-cast h3,
+        .detail-director h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .detail-plot p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cast-list span {
+            background: var(--surface-light);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-director p {
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .detail-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .watch-trailer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .similar-movies {
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .movie-detail-container {
+                padding: 1.5rem;
+            }
+            
+            .movie-detail-info h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+   
+</body>
+</html>
