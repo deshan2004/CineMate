@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-left">
@@ -27,13 +26,52 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <div class="page-header tvshows-header">
         <h1>TV Shows</h1>
-        <p>Binge-worthy series and episodes</p>
+        <p>Binge-worthy series and episodes - 32+ shows available</p>
     </div>
 
-    <!-- Category Filters -->
+    <div class="filters">
+        <div class="filters-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search TV shows by title...">
+            </div>
+            <select class="filter-select">
+                <option>All Genres</option>
+                <option>Action</option>
+                <option>Comedy</option>
+                <option>Drama</option>
+                <option>Sci-Fi</option>
+                <option>Thriller</option>
+                <option>Animation</option>
+            </select>
+            <select class="filter-select">
+                <option>All Years</option>
+                <option>2024</option>
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2011</option>
+                <option>2009</option>
+                <option>2008</option>
+                <option>2007</option>
+                <option>2005</option>
+                <option>2002</option>
+                <option>1999</option>
+            </select>
+            <button class="search-btn">Search</button>
+        </div>
+    </div>
+
     <div class="category-filters">
         <button class="category-btn active">All</button>
         <button class="category-btn">Action</button>
@@ -44,286 +82,10 @@
         <button class="category-btn">Animation</button>
     </div>
 
-    <!-- TV Shows Grid -->
     <section class="content-section">
         <div class="container">
-            <div class="movie-grid">
-                <!-- Drama TV Shows -->
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=breaking-bad" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Breaking Bad">
-                            <div class="poster-overlay">
-                                <span class="badge">Drama</span>
-                                <span class="rating"><i class="fas fa-star"></i> 9.5</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Breaking Bad
-                                <span class="movie-year">2008-2013</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 9.5</span>
-                                <span class="movie-genre">Drama</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=the-wire" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/4mxUj5EsY3T4b7wFq5m7qVKz8yG.jpg" alt="The Wire">
-                            <div class="poster-overlay">
-                                <span class="badge">Drama</span>
-                                <span class="rating"><i class="fas fa-star"></i> 9.2</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                The Wire
-                                <span class="movie-year">2002-2008</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 9.2</span>
-                                <span class="movie-genre">Drama</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=succession" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/9yVYgrGJqRMbS6Jj8z5y5b8hqMp.jpg" alt="Succession">
-                            <div class="poster-overlay">
-                                <span class="badge">Drama</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.9</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Succession
-                                <span class="movie-year">2018-2023</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
-                                <span class="movie-genre">Drama</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=stranger-things" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things">
-                            <div class="poster-overlay">
-                                <span class="badge">Sci-Fi</span>
-                                <span class="rating"><i class="fas fa-star"></i> 9.1</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Stranger Things
-                                <span class="movie-year">2016-2025</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 9.1</span>
-                                <span class="movie-genre">Sci-Fi</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=black-mirror" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/5UaYsGZOFhjFDwQh6GuLjjA1WlF.jpg" alt="Black Mirror">
-                            <div class="poster-overlay">
-                                <span class="badge">Sci-Fi</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.8</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Black Mirror
-                                <span class="movie-year">2011-2023</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.8</span>
-                                <span class="movie-genre">Sci-Fi</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=the-expanse" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/8lB2dslYhbVQI3EwsZ6IhDj5WJp.jpg" alt="The Expanse">
-                            <div class="poster-overlay">
-                                <span class="badge">Sci-Fi</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.7</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                The Expanse
-                                <span class="movie-year">2015-2022</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
-                                <span class="movie-genre">Sci-Fi</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=the-office" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/qWnJwZvXpjp3RcUxtGQDHnQHtji.jpg" alt="The Office">
-                            <div class="poster-overlay">
-                                <span class="badge">Comedy</span>
-                                <span class="rating"><i class="fas fa-star"></i> 9.4</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                The Office
-                                <span class="movie-year">2005-2013</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 9.4</span>
-                                <span class="movie-genre">Comedy</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=brooklyn-nine-nine" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/hgRMSOt7a1b8qyQR68vU3JPYkfj.jpg" alt="Brooklyn Nine-Nine">
-                            <div class="poster-overlay">
-                                <span class="badge">Comedy</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.9</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Brooklyn Nine-Nine
-                                <span class="movie-year">2013-2021</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
-                                <span class="movie-genre">Comedy</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=ted-lasso" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/3pDJoZ4TtX9NcQ7J3xJXv8L2m9S.jpg" alt="Ted Lasso">
-                            <div class="poster-overlay">
-                                <span class="badge">Comedy</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.7</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Ted Lasso
-                                <span class="movie-year">2020-2023</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
-                                <span class="movie-genre">Comedy</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=rick-morty" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/8kOWDBK6XlPUzckyHx43kJLQlFk.jpg" alt="Rick and Morty">
-                            <div class="poster-overlay">
-                                <span class="badge">Animation</span>
-                                <span class="rating"><i class="fas fa-star"></i> 9.3</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Rick and Morty
-                                <span class="movie-year">2013-2024</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 9.3</span>
-                                <span class="movie-genre">Animation</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=bojack-horseman" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/pB9L0jAnEQLMKgexq4oc1xkpe0e.jpg" alt="BoJack Horseman">
-                            <div class="poster-overlay">
-                                <span class="badge">Animation</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.9</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                BoJack Horseman
-                                <span class="movie-year">2014-2020</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.9</span>
-                                <span class="movie-genre">Animation</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="movie-card">
-                    <a href="tv-detail.html?id=arcane" class="movie-link">
-                        <div class="movie-poster">
-                            <img src="https://image.tmdb.org/t/p/w500/fqldf2t8ztc9jwnif2L5jYeOxPZ.jpg" alt="Arcane">
-                            <div class="poster-overlay">
-                                <span class="badge">Animation</span>
-                                <span class="rating"><i class="fas fa-star"></i> 8.6</span>
-                            </div>
-                        </div>
-                        <div class="movie-info">
-                            <div class="movie-title">
-                                Arcane
-                                <span class="movie-year">2021-2024</span>
-                            </div>
-                            <div class="movie-meta">
-                                <span class="movie-rating"><i class="fas fa-star"></i> 8.6</span>
-                                <span class="movie-genre">Animation</span>
-                                <i class="far fa-heart fav-icon"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <div id="movies-grid" class="movie-grid">
+                <!-- TV Shows will be rendered here by JavaScript -->
             </div>
         </div>
     </section>
@@ -333,6 +95,7 @@
             <div class="footer-info">
                 <h3>Cine Mate</h3>
                 <p>A movie and TV show discovery app built as part of the Web Architectures course. Explore the latest movies and TV shows with beautiful visuals and detailed information.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">🍿 38+ Movies | 📺 32+ TV Shows | ⭐ 8+ Genres</p>
             </div>
             <div class="footer-links">
                 <div class="footer-section">
@@ -358,5 +121,7 @@
             <p>&copy; 2024 Cine Mate. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
