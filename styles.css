@@ -1154,3 +1154,21 @@ body {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.1); opacity: 0.7; }
 }
+/* ========== BADGE COLOURS (missing from original) ========== */
+.badge.trending { border-color: rgba(255, 100, 50, 0.5); }
+.badge.new      { border-color: rgba(3, 218, 198, 0.5); }
+.badge.top      { border-color: rgba(255, 215, 0, 0.5); }
+.badge.classic  { border-color: rgba(187, 134, 252, 0.5); }
+
+/* ========== PAGE HEADER VARIANTS (referenced in HTML, missing from CSS) ========== */
+.movies-header,
+.tvshows-header,
+.favourites-header {
+    /* inherits styles from .page-header base class */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* ========== MOVIE RATING HIGH / MID / LOW colours ========== */
+.movie-rating.high { background: linear-gradient(135deg, #4caf50, #03dac6); }
+.movie-rating.mid  { background: linear-gradient(135deg, #ff9800, #cf6679); }
+.movie-rating.low  { background: linear-gradient(135deg, #cf6679, #b71c1c); }

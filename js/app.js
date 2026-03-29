@@ -1,4 +1,3 @@
-
 const movies = [
     { id: 1, title: "The Dark Knight", year: 2008, rating: 9.0, genre: "Action", badge: "trending", type: "movie", poster: "qJ2tW6WMUDux911r6m7haRef0WH.jpg", detailId: "dark-knight" },
     { id: 2, title: "Mad Max: Fury Road", year: 2015, rating: 8.8, genre: "Action", badge: "trending", type: "movie", poster: "8tZYtuWezp8JbcsvHYO0O46tFbo.jpg", detailId: "mad-max" },
@@ -85,12 +84,17 @@ const tvShows = [
     { id: 132, title: "Daredevil", year: "2015-2018", rating: 8.7, genre: "Action", badge: null, type: "tv", poster: "dGgLrWmXzAvBnMkLjhGfDs.jpg", detailId: "daredevil" }
 ];
 
+/* =====================================================
+   FAVOURITES — localStorage persistence
+   ===================================================== */
 let favourites = [];
 
 function loadFavourites() {
-    const saved = localStorage.getItem("cinemate_favourites");
-    if (saved) {
-        favourites = JSON.parse(saved);
+    try {
+        const saved = localStorage.getItem("cinemate_favourites");
+        if (saved) favourites = JSON.parse(saved);
+    } catch (e) {
+        favourites = [];
     }
 }
 
@@ -134,23 +138,23 @@ function toggleFavourite(item) {
     }
 }
 
+/* =====================================================
+   TOAST NOTIFICATIONS
+   ===================================================== */
 let toastTimeout;
 function showToast(message, type = "success") {
     const existingToast = document.querySelector(".toast");
-    if (existingToast) {
-        existingToast.remove();
-    }
-    
+    if (existingToast) existingToast.remove();
+
     const toast = document.createElement("div");
     toast.className = `toast ${type}`;
     toast.innerHTML = `
-        <i class="fas ${type === "success" ? "fa-check-circle" : "fa-exclamation-circle"}"></i>
+        <i class="fas ${type === "success" ? "fa-check-circle" : "fa-heart-broken"}"></i>
         <span>${message}</span>
     `;
     document.body.appendChild(toast);
-    
     setTimeout(() => toast.classList.add("show"), 10);
-    
+
     if (toastTimeout) clearTimeout(toastTimeout);
     toastTimeout = setTimeout(() => {
         toast.classList.remove("show");
@@ -158,43 +162,38 @@ function showToast(message, type = "success") {
     }, 3000);
 }
 
+/* =====================================================
+   CARD RENDERING HELPERS
+   ===================================================== */
 function getRatingClass(rating) {
-    if (rating >= 8.5) {
-        return "high";
-    } else if (rating >= 7.0) {
-        return "mid";
-    } else {
-        return "low";
-    }
+    if (rating >= 8.5) return "high";
+    if (rating >= 7.0) return "mid";
+    return "low";
 }
 
 function getBadgeHTML(badge) {
     switch (badge) {
-        case "trending":
-            return `<span class="badge trending">🔥 Trending</span>`;
-        case "new":
-            return `<span class="badge new">✨ New</span>`;
-        case "top":
-            return `<span class="badge top">⭐ Top Rated</span>`;
-        case "classic":
-            return `<span class="badge classic">🎬 Classic</span>`;
-        default:
-            return "";
+        case "trending": return `<span class="badge trending">🔥 Trending</span>`;
+        case "new":      return `<span class="badge new">✨ New</span>`;
+        case "top":      return `<span class="badge top">⭐ Top Rated</span>`;
+        case "classic":  return `<span class="badge classic">🎬 Classic</span>`;
+        default:         return "";
     }
 }
 
 function createCardHTML(item) {
     const ratingClass = getRatingClass(item.rating);
-    const badgeHTML = getBadgeHTML(item.badge);
-    const posterUrl = `https://image.tmdb.org/t/p/w500/${item.poster}`;
-    const detailPage = item.type === "movie" ? "movie-detail.html" : "tv-detail.html";
-    const isFav = isFavourite(item.id);
-    
+    const badgeHTML   = getBadgeHTML(item.badge);
+    const posterUrl   = `https://image.tmdb.org/t/p/w500/${item.poster}`;
+    const detailPage  = item.type === "movie" ? "movie-detail.html" : "tv-detail.html";
+    const isFav       = isFavourite(item.id);
+    const shortTitle  = item.title.length > 25 ? item.title.substring(0, 22) + "…" : item.title;
+
     return `
         <div class="movie-card" data-id="${item.id}" data-type="${item.type}">
             <a href="${detailPage}?id=${item.detailId}" class="movie-link">
                 <div class="movie-poster">
-                    <img src="${posterUrl}" alt="${item.title}" loading="lazy">
+                    <img src="${posterUrl}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x450/1e1e1e/bb86fc?text=No+Image'">
                     <div class="poster-overlay">
                         ${badgeHTML}
                         <span class="rating"><i class="fas fa-star"></i> ${item.rating}</span>
@@ -202,13 +201,17 @@ function createCardHTML(item) {
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">
-                        ${item.title.length > 25 ? item.title.substring(0, 22) + '...' : item.title}
+                        ${shortTitle}
                         <span class="movie-year">${item.year}</span>
                     </div>
                     <div class="movie-meta">
                         <span class="movie-rating ${ratingClass}"><i class="fas fa-star"></i> ${item.rating}</span>
                         <span class="movie-genre">${item.genre}</span>
-                        <i class="fas ${isFav ? 'fa-heart active' : 'fa-heart'} fav-icon" data-id="${item.id}" data-title="${item.title}" data-type="${item.type}"></i>
+                        <i class="fas fa-heart fav-icon ${isFav ? 'active' : ''}"
+                           data-id="${item.id}"
+                           data-title="${item.title}"
+                           data-type="${item.type}"
+                           title="${isFav ? 'Remove from favourites' : 'Add to favourites'}"></i>
                     </div>
                 </div>
             </a>
@@ -216,12 +219,12 @@ function createCardHTML(item) {
     `;
 }
 
-function createEmptyStateHTML(message = "No items found") {
+function createEmptyStateHTML(message = "No items found", sub = "Try adjusting your search or filters") {
     return `
         <div class="empty-state">
             <i class="fas fa-film"></i>
             <h3>${message}</h3>
-            <p>Try adjusting your search or filters</p>
+            <p>${sub}</p>
         </div>
     `;
 }
@@ -229,212 +232,330 @@ function createEmptyStateHTML(message = "No items found") {
 function renderCards(dataArray, targetId) {
     const container = document.getElementById(targetId);
     if (!container) return;
-    
+
     if (dataArray.length === 0) {
         container.innerHTML = createEmptyStateHTML();
         return;
     }
-    
-    let allCardsHTML = "";
-    for (let i = 0; i < dataArray.length; i++) {
-        allCardsHTML += createCardHTML(dataArray[i]);
-    }
-    container.innerHTML = allCardsHTML;
-    
+
+    container.innerHTML = dataArray.map(createCardHTML).join("");
     attachFavouriteListeners();
 }
 
+/* =====================================================
+   FAVOURITE CLICK HANDLER
+   ===================================================== */
 function attachFavouriteListeners() {
-    document.querySelectorAll('.fav-icon').forEach(icon => {
-        icon.removeEventListener('click', handleFavouriteClick);
-        icon.addEventListener('click', handleFavouriteClick);
+    document.querySelectorAll(".fav-icon").forEach(icon => {
+        icon.removeEventListener("click", handleFavouriteClick);
+        icon.addEventListener("click", handleFavouriteClick);
     });
 }
 
 function handleFavouriteClick(e) {
     e.preventDefault();
     e.stopPropagation();
-    
-    const icon = e.currentTarget;
+
+    const icon   = e.currentTarget;
     const itemId = parseInt(icon.dataset.id);
-    
     const allItems = [...movies, ...tvShows];
     const item = allItems.find(i => i.id === itemId);
-    
+
     if (item) {
         const isNowFavourite = toggleFavourite(item);
-        if (isNowFavourite) {
-            icon.classList.add('active');
-        } else {
-            icon.classList.remove('active');
+        icon.classList.toggle("active", isNowFavourite);
+        icon.title = isNowFavourite ? "Remove from favourites" : "Add to favourites";
+
+        // If we're on the favourites page, re-render to remove the card
+        const currentPage = window.location.pathname.split("/").pop();
+        if (currentPage === "favourites.html") {
+            renderFavouritesPage();
+            setupFavouritesSearch();
         }
     }
 }
 
+/* =====================================================
+   FILTERING STATE
+   ===================================================== */
 let currentGenreFilter = "All";
 let currentSearchQuery = "";
-let currentYearFilter = "All";
+let currentYearFilter  = "All";
+// BUG FIX: added tabFilter state so tab selection actually filters by badge
+let currentTabFilter   = "all";
+
+// BUG FIX: genre select option text was "All Genres" but filter compared against "All"
+// Now we normalise on change.
+function normaliseGenre(value) {
+    return (value === "All Genres" || value === "All") ? "All" : value;
+}
 
 function filterItems(items) {
     return items.filter(item => {
-        if (currentGenreFilter !== "All" && item.genre !== currentGenreFilter) {
-            return false;
+        // Genre filter
+        if (currentGenreFilter !== "All" && item.genre !== currentGenreFilter) return false;
+
+        // Year filter — BUG FIX: TV years are strings like "2008-2013", handle both
+        if (currentYearFilter !== "All") {
+            const yearStr = String(item.year);
+            if (!yearStr.includes(currentYearFilter)) return false;
         }
-        
-        if (currentYearFilter !== "All" && typeof item.year === "number") {
-            if (item.year !== parseInt(currentYearFilter)) {
-                return false;
-            }
-        }
-        
+
+        // Tab / badge filter — BUG FIX: was resetting to "All" for every tab
+        if (currentTabFilter !== "all" && item.badge !== currentTabFilter) return false;
+
+        // Search
         if (currentSearchQuery) {
             return item.title.toLowerCase().includes(currentSearchQuery.toLowerCase());
         }
-        
+
         return true;
     });
 }
 
+/* =====================================================
+   FILTER UI SETUP
+   ===================================================== */
 function setupFilters() {
-    const searchInput = document.querySelector('.search-box input');
-    const genreSelect = document.querySelector('.filter-select:first-of-type');
-    const yearSelect = document.querySelector('.filter-select:last-of-type');
-    const searchBtn = document.querySelector('.search-btn');
-    
-    if (searchInput) {
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                currentSearchQuery = searchInput.value;
-                applyFilters();
-            }
-        });
-    }
-    
-    if (genreSelect) {
-        genreSelect.addEventListener('change', (e) => {
-            currentGenreFilter = e.target.value;
-            applyFilters();
-        });
-    }
-    
-    if (yearSelect) {
-        yearSelect.addEventListener('change', (e) => {
-            currentYearFilter = e.target.value;
-            applyFilters();
-        });
-    }
-    
-    if (searchBtn) {
-        searchBtn.addEventListener('click', () => {
-            if (searchInput) {
-                currentSearchQuery = searchInput.value;
-                applyFilters();
-            }
-        });
-    }
-}
+    const searchInput = document.querySelector(".search-box input");
+    const genreSelect = document.querySelector(".filter-select:first-of-type");
+    const yearSelect  = document.querySelector(".filter-select:last-of-type");
+    const searchBtn   = document.querySelector(".search-btn");
 
-function applyFilters() {
-    const currentPage = window.location.pathname.split("/").pop();
-    
-    if (currentPage === "index.html" || currentPage === "") {
-        const filtered = filterItems(movies.filter(m => m.rating > 8.0));
-        renderCards(filtered, "movies-grid");
-    } else if (currentPage === "movie.html") {
-        const filtered = filterItems(movies);
-        renderCards(filtered, "movies-grid");
-    } else if (currentPage === "tvshows.html") {
-        const filtered = filterItems(tvShows);
-        renderCards(filtered, "movies-grid");
+    if (searchInput) {
+        searchInput.addEventListener("keyup", (e) => {
+            currentSearchQuery = searchInput.value;
+            if (e.key === "Enter") applyFilters();
+        });
+        // Live search on input
+        searchInput.addEventListener("input", () => {
+            currentSearchQuery = searchInput.value;
+            applyFilters();
+        });
+    }
+
+    if (genreSelect) {
+        genreSelect.addEventListener("change", (e) => {
+            // BUG FIX: normalise "All Genres" → "All"
+            currentGenreFilter = normaliseGenre(e.target.value);
+            applyFilters();
+        });
+    }
+
+    if (yearSelect) {
+        yearSelect.addEventListener("change", (e) => {
+            currentYearFilter = (e.target.value === "All Years") ? "All" : e.target.value;
+            applyFilters();
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener("click", () => {
+            if (searchInput) currentSearchQuery = searchInput.value;
+            applyFilters();
+        });
     }
 }
 
 function setupCategoryFilters() {
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    
+    const categoryBtns = document.querySelectorAll(".category-btn");
+
     categoryBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const genre = btn.textContent;
-            currentGenreFilter = genre === "All" ? "All" : genre;
+        btn.addEventListener("click", () => {
+            categoryBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentGenreFilter = btn.textContent.trim() === "All" ? "All" : btn.textContent.trim();
             applyFilters();
         });
     });
 }
 
+// BUG FIX: tabs now actually filter by badge value (trending / new / top)
 function setupTabFilters() {
-    const tabs = document.querySelectorAll('.tab');
-    
+    const tabs = document.querySelectorAll(".tab");
+
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            const filter = tab.dataset.filter || tab.textContent.toLowerCase();
-            
-            if (filter === 'all' || filter === 'all') {
-                currentGenreFilter = "All";
-            } else if (filter === 'trending') {
-                currentGenreFilter = "All";
-            } else if (filter === 'new') {
-                currentGenreFilter = "All";
-            } else if (filter === 'top') {
-                currentGenreFilter = "All";
-            }
-            
+        tab.addEventListener("click", () => {
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+            currentTabFilter = tab.dataset.filter || "all";
             applyFilters();
         });
     });
 }
 
+function applyFilters() {
+    const currentPage = window.location.pathname.split("/").pop();
+
+    if (currentPage === "index.html" || currentPage === "") {
+        const filtered = filterItems(movies.filter(m => m.rating > 8.0));
+        renderCards(filtered, "movies-grid");
+    } else if (currentPage === "movie.html") {
+        renderCards(filterItems(movies), "movies-grid");
+    } else if (currentPage === "tvshows.html") {
+        renderCards(filterItems(tvShows), "movies-grid");
+    }
+}
+
+/* =====================================================
+   FAVOURITES PAGE
+   ===================================================== */
 function renderFavouritesPage() {
     const container = document.getElementById("favourites-grid");
     if (!container) return;
-    
+
     if (favourites.length === 0) {
         container.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-heart"></i>
                 <h3>No favourites yet</h3>
-                <p>Start adding movies and TV shows to your favourites by clicking the heart icon</p>
+                <p>Start adding movies and TV shows to your favourites by clicking the ❤ icon</p>
             </div>
         `;
         return;
     }
-    
+
     renderCards(favourites, "favourites-grid");
 }
 
 function setupFavouritesSearch() {
     const searchInput = document.getElementById("favourites-search");
     if (!searchInput) return;
-    
-    searchInput.addEventListener('keyup', (e) => {
+
+    // Remove previous listener to avoid stacking after re-renders
+    const newInput = searchInput.cloneNode(true);
+    searchInput.parentNode.replaceChild(newInput, searchInput);
+
+    newInput.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase();
-        const filtered = favourites.filter(item => 
-            item.title.toLowerCase().includes(query)
-        );
+        const filtered = favourites.filter(item => item.title.toLowerCase().includes(query));
         renderCards(filtered, "favourites-grid");
     });
 }
 
+/* =====================================================
+   DETAIL PAGES — trailer modal + favourites button
+   ===================================================== */
+function setupDetailPage() {
+    // Trailer modal
+    const trailerBtn   = document.getElementById("watchTrailerBtn");
+    const trailerModal = document.getElementById("trailerModal");
+    const closeModal   = document.querySelector(".close-modal");
+    const trailerIframe = document.getElementById("trailerIframe");
+
+    if (trailerBtn && trailerModal) {
+        trailerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            trailerModal.classList.add("show");
+        });
+    }
+
+    if (closeModal && trailerModal) {
+        closeModal.addEventListener("click", () => {
+            trailerModal.classList.remove("show");
+            // Stop video playback by clearing & restoring src
+            if (trailerIframe) {
+                const src = trailerIframe.src;
+                trailerIframe.src = "";
+                trailerIframe.src = src;
+            }
+        });
+
+        trailerModal.addEventListener("click", (e) => {
+            if (e.target === trailerModal) {
+                closeModal.click();
+            }
+        });
+    }
+
+    // "Add to Favourites" button on detail pages
+    // BUG FIX: was a plain dead <a href="#"> with no handler
+    const favBtn = document.querySelector(".detail-buttons .btn-secondary");
+    if (favBtn) {
+        // Determine the current item from the page's visible title & detailId in URL
+        const urlParams  = new URLSearchParams(window.location.search);
+        const detailId   = urlParams.get("id");
+        const allItems   = [...movies, ...tvShows];
+        const currentItem = allItems.find(i => i.detailId === detailId);
+
+        if (currentItem) {
+            // Set initial state
+            updateDetailFavBtn(favBtn, isFavourite(currentItem.id));
+
+            favBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const isNowFav = toggleFavourite(currentItem);
+                updateDetailFavBtn(favBtn, isNowFav);
+            });
+        }
+    }
+}
+
+function updateDetailFavBtn(btn, isFav) {
+    if (isFav) {
+        btn.innerHTML = `<i class="fas fa-heart"></i> Remove from Favourites`;
+        btn.style.background = "var(--error)";
+        btn.style.borderColor = "var(--error)";
+        btn.style.color = "#fff";
+    } else {
+        btn.innerHTML = `<i class="far fa-heart"></i> Add to Favourites`;
+        btn.style.background = "";
+        btn.style.borderColor = "";
+        btn.style.color = "";
+    }
+}
+
+/* =====================================================
+   FEATURED SECTION — home page favourite button
+   ===================================================== */
+function setupFeaturedFavourite() {
+    // BUG FIX: featured "Favourite" button was a dead link
+    const featuredFavBtn = document.querySelector(".favourite-featured");
+    if (!featuredFavBtn) return;
+
+    // Interstellar is the featured item (id: 14)
+    const item = movies.find(m => m.id === 14);
+    if (!item) return;
+
+    function updateFeaturedBtn() {
+        if (isFavourite(item.id)) {
+            featuredFavBtn.innerHTML = `<i class="fas fa-heart"></i> Favourited`;
+            featuredFavBtn.style.background = "var(--error)";
+            featuredFavBtn.style.borderColor = "var(--error)";
+            featuredFavBtn.style.color = "#fff";
+        } else {
+            featuredFavBtn.innerHTML = `<i class="far fa-heart"></i> Favourite`;
+            featuredFavBtn.style.background = "";
+            featuredFavBtn.style.borderColor = "";
+            featuredFavBtn.style.color = "";
+        }
+    }
+
+    updateFeaturedBtn();
+    featuredFavBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleFavourite(item);
+        updateFeaturedBtn();
+    });
+}
+
+/* =====================================================
+   INIT
+   ===================================================== */
 function initPage() {
     const currentPage = window.location.pathname.split("/").pop();
-    
+
     loadFavourites();
-    
-    if (currentPage === "index.html" || currentPage === "" || 
-        currentPage === "movie.html" || currentPage === "tvshows.html") {
+
+    if (["index.html", "", "movie.html", "tvshows.html"].includes(currentPage)) {
         setupFilters();
         setupCategoryFilters();
         setupTabFilters();
     }
-    
+
     if (currentPage === "index.html" || currentPage === "") {
-        const highRatedMovies = movies.filter(m => m.rating > 8.0);
-        renderCards(highRatedMovies, "movies-grid");
+        renderCards(movies.filter(m => m.rating > 8.0), "movies-grid");
+        setupFeaturedFavourite();
     } else if (currentPage === "movie.html") {
         renderCards(movies, "movies-grid");
     } else if (currentPage === "tvshows.html") {
@@ -442,6 +563,9 @@ function initPage() {
     } else if (currentPage === "favourites.html") {
         renderFavouritesPage();
         setupFavouritesSearch();
+    } else if (currentPage === "movie-detail.html" || currentPage === "tv-detail.html") {
+        // BUG FIX: detail pages had no JS initialisation at all
+        setupDetailPage();
     }
 }
 
