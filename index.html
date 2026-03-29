@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Cine Mate - Movie & TV Show Discovery</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,7 +21,7 @@
             </div>
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" placeholder="Search..." class="search-input">
+                <input type="text" placeholder="Search..." class="search-input" id="global-search">
             </div>
         </div>
     </nav>
@@ -51,9 +51,9 @@
         <div class="filters-container">
             <div class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search for a movie or TV show..">
+                <input type="text" id="home-search" placeholder="Search for a movie or TV show...">
             </div>
-            <select class="filter-select">
+            <select id="home-genre" class="filter-select">
                 <option>All Genres</option>
                 <option>Action</option>
                 <option>Comedy</option>
@@ -63,7 +63,7 @@
                 <option>Thriller</option>
                 <option>Animation</option>
             </select>
-            <select class="filter-select">
+            <select id="home-year" class="filter-select">
                 <option>All Years</option>
                 <option>2024</option>
                 <option>2023</option>
@@ -72,9 +72,8 @@
                 <option>2020</option>
                 <option>2019</option>
                 <option>2018</option>
-                <option>2017</option>
             </select>
-            <button class="search-btn">Search</button>
+            <button class="search-btn" id="home-search-btn">Search</button>
         </div>
     </div>
 
@@ -82,18 +81,8 @@
         <div class="container">
             <h2 class="section-title">Featured This Week</h2>
             <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="featured-poster">
-                        <img src="https://image.tmdb.org/t/p/w500/gvK2BQLW5c2efdF8WvVRjCqHJlL.jpg" alt="Interstellar">
-                    </div>
-                    <div class="featured-info">
-                        <h3>Interstellar</h3>
-                        <p>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival. A breathtaking journey through time and love.</p>
-                        <div class="featured-buttons">
-                            <a href="movie-detail.html?id=interstellar" class="btn-primary">View Details</a>
-                            <a href="#" class="btn-secondary favourite-featured"><i class="far fa-heart"></i> Favourite</a>
-                        </div>
-                    </div>
+                <div class="featured-card" id="featured-card">
+                    <!-- Featured content loaded by JS -->
                 </div>
             </div>
         </div>
@@ -112,6 +101,7 @@
                 <span class="tab" data-filter="top">TOP RATED</span>
             </div>
             <div id="movies-grid" class="movie-grid">
+                <!-- Movies will be rendered here by JavaScript -->
             </div>
         </div>
     </section>
@@ -147,7 +137,7 @@
             <p>&copy; 2026 Cine Mate. All rights reserved.</p>
         </div>
     </footer>
-    
-    <script src="js/app.js"></script>
+
+    <script src="app.js"></script>
 </body>
 </html>
