@@ -1,30 +1,28 @@
-# Cine Mate - Movie & TV Show Discovery App
+# 🎬 Cine Mate - Movie & TV Show Discovery App
 
-A modern, responsive web application for discovering movies and TV shows. Built as part of the Web Architectures course.
+Cine Mate is a modern, responsive web application designed for entertainment enthusiasts to discover the latest movies and TV shows. It features a high-end dark mode interface, detailed media information, and a personalized experience for saving favorites.
 
-## Features
+## ✨ Features
 
-- 🎬 Browse movies and TV shows
-- 🔍 Search functionality with filters
-- ❤️ Save favourites to localStorage
-- 📱 Fully responsive mobile design
-- 🎥 Watch trailers in modal popup
-- ⭐ Rating system and genre filtering
+- **Dynamic Discovery**: Browse trending and popular movies and TV shows.
+- **Detailed Information**: View comprehensive details including plots, cast, ratings, and trailers for every title.
+- **Personalized Favorites**: Save your must-watch movies and shows to a dedicated "Favourites" page.
+- **Search Functionality**: Quickly find specific titles using the integrated search bar.
+- **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices with a "Mobile-First" approach.
+- **Modern UI/UX**: Features a sleek dark theme with smooth gradients, glassmorphism effects, and interactive animations.
 
-## Technologies Used
+## 🛠️ Tech Stack
 
-- HTML5
-- CSS3 (with CSS variables and gradients)
-- JavaScript (ES6+)
-- Font Awesome Icons
-- TMDB API for poster images
+- **Frontend**: HTML5, CSS3 (Custom properties/Variables, Flexbox, Grid)
+- **Icons**: Font Awesome 6.0
+- **Fonts**: Google Fonts
+- **API Integration**: Powered by [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api)
 
-## How to Use
+## 📁 Project Structure
 
-1. Clone or download all files to a folder
-2. Open `index.html` in a modern web browser
-3. Browse movies and TV shows
-4. Click the heart icon to add to favourites
-5. Click on any card to view details and watch trailers
+- `index.html` - Home page featuring trending content and hero section.
+- `movie.html` / `tvshows.html` - Dedicated browsing pages for different media types.
+- `movie-detail.html` / `tv-detail.html` - Deep-dive pages for specific title information.
+- `favourites.html` - User-specific saved collection page.
+- `styles.css` - Centralized stylesheet containing the "Cine Mate" design system.
 
-## File Structure
