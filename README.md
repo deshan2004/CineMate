@@ -25,4 +25,5 @@ Cine Mate is a modern, responsive web application designed for entertainment ent
 - `movie-detail.html` / `tv-detail.html` - Deep-dive pages for specific title information.
 - `favourites.html` - User-specific saved collection page.
 - `styles.css` - Centralized stylesheet containing the "Cine Mate" design system.
+- js/app.js
 
