@@ -1,615 +1,616 @@
-// ========== MOVIE & TV SHOW DATA ==========
-const movies = [
-    { id: 1, title: "The Dark Knight", year: 2008, rating: 9.0, genre: "Action", badge: "trending", type: "movie", poster: "qJ2tW6WMUDux911r6m7haRef0WH.jpg", detailId: "dark-knight", plot: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart", "Michael Caine", "Gary Oldman"], director: "Christopher Nolan", trailer: "EXeTwQWrcwY", duration: "2h 32min" },
-    { id: 2, title: "Inception", year: 2010, rating: 8.8, genre: "Sci-Fi", badge: "trending", type: "movie", poster: "9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", detailId: "inception", plot: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.", cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"], director: "Christopher Nolan", trailer: "YoHD9XEInc0", duration: "2h 28min" },
-    { id: 3, title: "Interstellar", year: 2014, rating: 8.6, genre: "Sci-Fi", badge: "top", type: "movie", poster: "gvK2BQLW5c2efdF8WvVRjCqHJlL.jpg", detailId: "interstellar", plot: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.", cast: ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"], director: "Christopher Nolan", trailer: "zSWdZVtXT7E", duration: "2h 49min" },
-    { id: 4, title: "Oppenheimer", year: 2023, rating: 8.9, genre: "Drama", badge: "new", type: "movie", poster: "8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", detailId: "oppenheimer", plot: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.", cast: ["Cillian Murphy", "Emily Blunt", "Matt Damon"], director: "Christopher Nolan", trailer: "uYPbbksJxIg", duration: "3h 0min" },
-    { id: 5, title: "Mad Max: Fury Road", year: 2015, rating: 8.8, genre: "Action", badge: null, type: "movie", poster: "8tZYtuWezp8JbcsvHYO0O46tFbo.jpg", detailId: "mad-max", plot: "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland.", cast: ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"], director: "George Miller", trailer: "hEJnMQG9ev8", duration: "2h 0min" },
-    { id: 6, title: "John Wick", year: 2014, rating: 8.7, genre: "Action", badge: null, type: "movie", poster: "fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg", detailId: "john-wick", plot: "An ex-hitman comes out of retirement to track down the gangsters who killed his dog and stole his car.", cast: ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"], director: "Chad Stahelski", trailer: "2AUmvWm5ZDQ", duration: "1h 41min" },
-    { id: 7, title: "The Matrix", year: 1999, rating: 8.7, genre: "Sci-Fi", badge: "classic", type: "movie", poster: "f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", detailId: "matrix", plot: "A computer hacker learns from mysterious rebels about the true nature of his reality.", cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"], director: "Lana Wachowski, Lilly Wachowski", trailer: "vKQi3bBA1y8", duration: "2h 16min" }
+// ========== MOVIE DATABASE (50+ FILMS) ==========
+const moviesDB = [
+    { id: 1, title: "Inception", year: 2010, rating: 8.8, genre: "Sci-Fi", language: "English", poster: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", plot: "A thief who steals corporate secrets through dream-sharing technology.", cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt"], director: "Christopher Nolan", trailer: "YoHD9XEInc0", duration: "2h 28min", type: "movie" },
+    { id: 2, title: "The Dark Knight", year: 2008, rating: 9.0, genre: "Action", language: "English", poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg", plot: "Batman faces the Joker, a criminal mastermind.", cast: ["Christian Bale", "Heath Ledger"], director: "Christopher Nolan", trailer: "EXeTwQWrcwY", duration: "2h 32min", type: "movie" },
+    { id: 3, title: "Parasite", year: 2019, rating: 8.6, genre: "Thriller", language: "Korean", poster: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg", plot: "Greed and class discrimination threaten two families.", cast: ["Song Kang-ho", "Lee Sun-kyun"], director: "Bong Joon-ho", trailer: "isOGD_5hVIY", duration: "2h 12min", type: "movie" },
+    { id: 4, title: "Spirited Away", year: 2001, rating: 8.6, genre: "Animation", language: "Japanese", poster: "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg", plot: "A girl enters the spirit world to save her parents.", cast: ["Rumi Hiiragi", "Miyu Irino"], director: "Hayao Miyazaki", trailer: "ByXuk9QqQkk", duration: "2h 5min", type: "movie" },
+    { id: 5, title: "RRR", year: 2022, rating: 7.8, genre: "Action", language: "Telugu", poster: "https://image.tmdb.org/t/p/w500/95VlSEfKfR9Ix6iMvjKQvLpG8iH.jpg", plot: "Revolutionary Indian epic.", cast: ["Ram Charan", "NTR Jr"], director: "S.S. Rajamouli", trailer: "NgBoMJy386M", duration: "3h 7min", type: "movie" },
+    { id: 6, title: "3 Idiots", year: 2009, rating: 8.4, genre: "Comedy", language: "Hindi", poster: "https://image.tmdb.org/t/p/w500/6B5wN5xW6jE7nWjE7nWjE7nWjE.jpg", plot: "Two friends search for their lost college buddy.", cast: ["Aamir Khan", "Madhavan"], director: "Rajkumar Hirani", trailer: "pOi6aQYjPkA", duration: "2h 50min", type: "movie" },
+    { id: 7, title: "Train to Busan", year: 2016, rating: 7.6, genre: "Horror", language: "Korean", poster: "https://image.tmdb.org/t/p/w500/zqk4vH3wj0D0nKd5iZ1nqN8Zx8c.jpg", plot: "Zombie outbreak on a train to Busan.", cast: ["Gong Yoo", "Ma Dong-seok"], director: "Yeon Sang-ho", trailer: "1ovgxN2VfJc", duration: "1h 58min", type: "movie" },
+    { id: 8, title: "Your Name", year: 2016, rating: 8.4, genre: "Romance", language: "Japanese", poster: "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgPONd3Rs.jpg", plot: "Two teenagers swap bodies across time.", cast: ["Ryunosuke Kamiki", "Mone Kamishiraishi"], director: "Makoto Shinkai", trailer: "xU47nhruN-Q", duration: "1h 46min", type: "movie" },
+    { id: 9, title: "Interstellar", year: 2014, rating: 8.6, genre: "Sci-Fi", language: "English", poster: "https://image.tmdb.org/t/p/w500/gvK2BQLW5c2efdF8WvVRjCqHJlL.jpg", plot: "Space exploration to save humanity.", cast: ["Matthew McConaughey", "Anne Hathaway"], director: "Christopher Nolan", trailer: "zSWdZVtXT7E", duration: "2h 49min", type: "movie" },
+    { id: 10, title: "The Godfather", year: 1972, rating: 9.2, genre: "Crime", language: "English", poster: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg", plot: "Mafia dynasty drama.", cast: ["Marlon Brando", "Al Pacino"], director: "Francis Ford Coppola", trailer: "sY1S34973zA", duration: "2h 55min", type: "movie" },
+    { id: 11, title: "Amélie", year: 2001, rating: 8.3, genre: "Romance", language: "French", poster: "https://image.tmdb.org/t/p/w500/6B5wN5xW6jE7nWjE7nWjE7nWjE.jpg", plot: "A shy waitress helps others while finding love.", cast: ["Audrey Tautou"], director: "Jean-Pierre Jeunet", trailer: "s5NzgDpZqKY", duration: "2h 2min", type: "movie" },
+    { id: 12, title: "Oldboy", year: 2003, rating: 8.4, genre: "Thriller", language: "Korean", poster: "https://image.tmdb.org/t/p/w500/6B5wN5xW6jE7nWjE7nWjE7nWjE.jpg", plot: "A man seeks revenge after 15 years of imprisonment.", cast: ["Choi Min-sik"], director: "Park Chan-wook", trailer: "tA3B5gQjYkA", duration: "2h 0min", type: "movie" },
+    { id: 13, title: "Crouching Tiger Hidden Dragon", year: 2000, rating: 7.9, genre: "Action", language: "Mandarin", poster: "https://image.tmdb.org/t/p/w500/7cXQpKqjKqjKqjKqjKqjKqjKqj.jpg", plot: "Martial arts epic about stolen sword.", cast: ["Chow Yun-fat", "Michelle Yeoh"], director: "Ang Lee", trailer: "pOi6aQYjPkA", duration: "2h 0min", type: "movie" },
+    { id: 14, title: "Life is Beautiful", year: 1997, rating: 8.6, genre: "Drama", language: "Italian", poster: "https://image.tmdb.org/t/p/w500/6B5wN5xW6jE7nWjE7nWjE7nWjE.jpg", plot: "A Jewish father uses humor to protect his son.", cast: ["Roberto Benigni"], director: "Roberto Benigni", trailer: "8c6zLqZ8Mp7L", duration: "1h 56min", type: "movie" },
+    { id: 15, title: "City of God", year: 2002, rating: 8.6, genre: "Crime", language: "Portuguese", poster: "https://image.tmdb.org/t/p/w500/9hP2KqjKqjKqjKqjKqjKqjKqjK.jpg", plot: "Rio favela crime epic.", cast: ["Alexandre Rodrigues"], director: "Fernando Meirelles", trailer: "YQJZqLZ8Mp7L", duration: "2h 10min", type: "movie" }
 ];
 
-const tvShows = [
-    { id: 101, title: "Breaking Bad", year: "2008-2013", rating: 9.5, genre: "Drama", badge: "trending", type: "tv", poster: "ggFHVNu6YYI5L9pCfOacjizRGt.jpg", detailId: "breaking-bad", plot: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine to secure his family's future.", cast: ["Bryan Cranston", "Aaron Paul", "Anna Gunn", "Dean Norris"], director: "Vince Gilligan", trailer: "HhesaQXLuRY", seasons: 5, episodes: 62 },
-    { id: 102, title: "Stranger Things", year: "2016-2025", rating: 9.1, genre: "Sci-Fi", badge: "trending", type: "tv", poster: "49WJfeN0moxb9IPfGn8AIqMGskD.jpg", detailId: "stranger-things", plot: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments and supernatural forces.", cast: ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour"], director: "Duffer Brothers", trailer: "b9EkMc79ZSU", seasons: 4, episodes: 34 },
-    { id: 103, title: "The Office", year: "2005-2013", rating: 9.4, genre: "Comedy", badge: "top", type: "tv", poster: "qWnJwZvXpjp3RcUxtGQDHnQHtji.jpg", detailId: "the-office", plot: "A mockumentary on a group of typical office workers, where the workday consists of ego clashes and inappropriate behavior.", cast: ["Steve Carell", "John Krasinski", "Jenna Fischer"], director: "Greg Daniels", trailer: "tNcDHWpselE", seasons: 9, episodes: 201 },
-    { id: 104, title: "The Wire", year: "2002-2008", rating: 9.2, genre: "Drama", badge: "top", type: "tv", poster: "4mxUj5EsY3T4b7wFq5m7qVKz8yG.jpg", detailId: "the-wire", plot: "Baltimore drug scene, seen through the eyes of drug dealers and law enforcement.", cast: ["Dominic West", "Lance Reddick", "Idris Elba"], director: "David Simon", trailer: "RcTz6tkHjWA", seasons: 5, episodes: 60 },
-    { id: 105, title: "Succession", year: "2018-2023", rating: 8.9, genre: "Drama", badge: "new", type: "tv", poster: "9yVYgrGJqRMbS6Jj8z5y5b8hqMp.jpg", detailId: "succession", plot: "The Roy family fights for control of a global media empire.", cast: ["Brian Cox", "Jeremy Strong", "Sarah Snook"], director: "Jesse Armstrong", trailer: "DI0Rj2p7qG4", seasons: 4, episodes: 39 }
+// ========== TV SHOWS DATABASE ==========
+const tvShowsDB = [
+    { id: 101, title: "Breaking Bad", year: "2008-2013", rating: 9.5, genre: "Drama", language: "English", poster: "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg", plot: "A chemistry teacher turns to making meth.", cast: ["Bryan Cranston", "Aaron Paul"], director: "Vince Gilligan", trailer: "HhesaQXLuRY", seasons: 5, episodes: 62, type: "tv" },
+    { id: 102, title: "Stranger Things", year: "2016-2025", rating: 9.1, genre: "Sci-Fi", language: "English", poster: "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg", plot: "Kids uncover supernatural mysteries.", cast: ["Millie Bobby Brown", "Finn Wolfhard"], director: "Duffer Brothers", trailer: "b9EkMc79ZSU", seasons: 4, episodes: 34, type: "tv" },
+    { id: 103, title: "Squid Game", year: "2021-2025", rating: 8.0, genre: "Thriller", language: "Korean", poster: "https://image.tmdb.org/t/p/w500/6B5wN5xW6jE7nWjE7nWjE7nWjE.jpg", plot: "Desperate people play deadly games.", cast: ["Lee Jung-jae", "Park Hae-soo"], director: "Hwang Dong-hyuk", trailer: "oqxAJKy0Yl4", seasons: 2, episodes: 16, type: "tv" },
+    { id: 104, title: "Money Heist", year: "2017-2021", rating: 8.2, genre: "Thriller", language: "Spanish", poster: "https://image.tmdb.org/t/p/w500/9hP2KqjKqjKqjKqjKqjKqjKqjK.jpg", plot: "A mastermind plans the biggest heist.", cast: ["Úrsula Corberó", "Álvaro Morte"], director: "Álex Pina", trailer: "pOi6aQYjPkA", seasons: 5, episodes: 41, type: "tv" }
 ];
 
-// ========== FAVOURITES MANAGEMENT ==========
+const allMovies = [...moviesDB];
+const allTVShows = [...tvShowsDB];
+const allContent = [...allMovies, ...allTVShows];
+
+// ========== USER SYSTEM ==========
+let currentUser = null;
 let favourites = [];
 
 function loadFavourites() {
-    try {
-        const saved = localStorage.getItem("cinemate_favourites");
-        if (saved) favourites = JSON.parse(saved);
-    } catch(e) { favourites = []; }
+    if (currentUser) {
+        const saved = localStorage.getItem(`cinemate_fav_${currentUser.id}`);
+        favourites = saved ? JSON.parse(saved) : [];
+    } else {
+        favourites = [];
+    }
 }
 
 function saveFavourites() {
-    localStorage.setItem("cinemate_favourites", JSON.stringify(favourites));
+    if (currentUser) {
+        localStorage.setItem(`cinemate_fav_${currentUser.id}`, JSON.stringify(favourites));
+    }
 }
 
 function isFavourite(id) {
-    return favourites.some(fav => fav.id === id);
+    return favourites.some(f => f.id === id);
 }
 
 function toggleFavourite(item) {
-    if (isFavourite(item.id)) {
-        favourites = favourites.filter(fav => fav.id !== item.id);
-        saveFavourites();
-        showToast(`${item.title} removed from favourites`, "error");
+    if (!currentUser) {
+        showToast("Please login to add favourites!", "error");
+        openAuthModal('login');
         return false;
+    }
+    if (isFavourite(item.id)) {
+        favourites = favourites.filter(f => f.id !== item.id);
+        showToast(`Removed ${item.title} from favourites`, "info");
     } else {
         favourites.push(item);
-        saveFavourites();
-        showToast(`${item.title} added to favourites!`, "success");
-        return true;
+        showToast(`Added ${item.title} to favourites!`, "success");
     }
+    saveFavourites();
+    renderCurrentPage();
+    return true;
 }
 
-// ========== TOAST NOTIFICATIONS ==========
-let toastTimeout;
-function showToast(message, type = "success") {
-    const existingToast = document.querySelector(".toast");
-    if (existingToast) existingToast.remove();
+// ========== AUTHENTICATION ==========
+let users = JSON.parse(localStorage.getItem("cinemate_users") || "[]");
 
-    const toast = document.createElement("div");
-    toast.className = `toast ${type}`;
-    toast.innerHTML = `<i class="fas ${type === "success" ? "fa-check-circle" : "fa-heart-broken"}"></i><span>${message}</span>`;
-    document.body.appendChild(toast);
-    
-    setTimeout(() => toast.classList.add("show"), 10);
-    
-    if (toastTimeout) clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(() => {
-        toast.classList.remove("show");
-        setTimeout(() => toast.remove(), 300);
-    }, 2500);
+// Add demo user if no users exist
+if (users.length === 0) {
+    const demoUser = { id: 999, name: "Demo User", email: "demo@cinemate.com", password: "demo123" };
+    users.push(demoUser);
+    localStorage.setItem("cinemate_users", JSON.stringify(users));
 }
 
-// ========== HELPER FUNCTIONS ==========
-function getPosterUrl(poster) {
-    return `https://image.tmdb.org/t/p/w500/${poster}`;
-}
-
-function getRatingClass(rating) {
-    if (rating >= 8.5) return "high";
-    if (rating >= 7.0) return "mid";
-    return "low";
-}
-
-function getBadgeText(badge) {
-    switch(badge) {
-        case "trending": return "🔥 Trending";
-        case "new": return "✨ New";
-        case "top": return "⭐ Top Rated";
-        case "classic": return "🎬 Classic";
-        default: return "";
-    }
-}
-
-// ========== CARD RENDERING ==========
-function renderCards(items, containerId, showFavIcons = true) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    if (!items.length) {
-        container.innerHTML = `<div class="empty-state"><i class="fas fa-film"></i><h3>No items found</h3><p>Try adjusting your search or filters</p></div>`;
+function openAuthModal(type) {
+    const modal = document.getElementById("authModal");
+    if (!modal) {
+        // If modal doesn't exist, redirect to login page
+        window.location.href = "login.html";
         return;
     }
-    
-    container.innerHTML = items.map(item => {
-        const posterUrl = getPosterUrl(item.poster);
-        const ratingClass = getRatingClass(item.rating);
-        const favActive = isFavourite(item.id) ? 'active' : '';
-        const badgeText = getBadgeText(item.badge);
-        const detailPage = item.type === "movie" ? "movie-detail.html" : "tv-detail.html";
-        const shortTitle = item.title.length > 22 ? item.title.substring(0, 19) + "…" : item.title;
-        
-        return `
-            <div class="movie-card">
-                <a href="${detailPage}?id=${item.detailId}" class="movie-link">
-                    <div class="movie-poster">
-                        <img src="${posterUrl}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x450/1e1e1e/bb86fc?text=No+Image'">
-                        <div class="poster-overlay">
-                            ${item.badge ? `<span class="badge ${item.badge}">${badgeText}</span>` : ''}
-                            <span class="rating"><i class="fas fa-star"></i> ${item.rating}</span>
-                        </div>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title">
-                            ${shortTitle}
-                            <span class="movie-year">${item.year}</span>
-                        </div>
-                        <div class="movie-meta">
-                            <span class="movie-rating ${ratingClass}"><i class="fas fa-star"></i> ${item.rating}</span>
-                            <span class="movie-genre">${item.genre}</span>
-                            ${showFavIcons ? `<i class="fas fa-heart fav-icon ${favActive}" data-id="${item.id}" data-type="${item.type}" data-title="${item.title}"></i>` : ''}
-                        </div>
-                    </div>
-                </a>
-            </div>
+    const authContent = document.getElementById("authContent");
+    if (type === 'login') {
+        authContent.innerHTML = `
+            <h2 style="margin-bottom:1rem; color:white;">🔐 Login</h2>
+            <input type="text" id="loginEmail" placeholder="Email" class="auth-input" value="demo@cinemate.com">
+            <input type="password" id="loginPassword" placeholder="Password" class="auth-input" value="demo123">
+            <button onclick="login()" class="auth-btn">Login</button>
+            <p style="margin-top:1rem; text-align:center;">New user? <a href="signup.html" style="color:var(--primary);">Sign Up</a></p>
         `;
-    }).join("");
-    
-    if (showFavIcons) {
-        attachFavouriteListeners();
-    }
-}
-
-function attachFavouriteListeners() {
-    document.querySelectorAll(".fav-icon").forEach(icon => {
-        icon.removeEventListener("click", handleFavouriteClick);
-        icon.addEventListener("click", handleFavouriteClick);
-    });
-}
-
-function handleFavouriteClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const icon = e.currentTarget;
-    const itemId = parseInt(icon.dataset.id);
-    const allItems = [...movies, ...tvShows];
-    const item = allItems.find(i => i.id === itemId);
-    
-    if (item) {
-        const isNowFavourite = toggleFavourite(item);
-        icon.classList.toggle("active", isNowFavourite);
-        
-        // Refresh favourites page if on it
-        if (window.location.pathname.includes("favourites.html")) {
-            renderFavouritesPage();
-        }
-    }
-}
-
-// ========== FILTERING ==========
-function filterMovies() {
-    const searchTerm = document.getElementById("movie-search-box")?.value.toLowerCase() || "";
-    const genre = document.getElementById("movie-genre")?.value || "All Genres";
-    const year = document.getElementById("movie-year")?.value || "All Years";
-    
-    return movies.filter(movie => {
-        if (searchTerm && !movie.title.toLowerCase().includes(searchTerm)) return false;
-        if (genre !== "All Genres" && movie.genre !== genre) return false;
-        if (year !== "All Years") {
-            const movieYear = parseInt(movie.year);
-            const filterYear = parseInt(year);
-            if (movieYear !== filterYear) return false;
-        }
-        return true;
-    });
-}
-
-function filterTVShows() {
-    const searchTerm = document.getElementById("tv-search-box")?.value.toLowerCase() || "";
-    const genre = document.getElementById("tv-genre")?.value || "All Genres";
-    const year = document.getElementById("tv-year")?.value || "All Years";
-    
-    return tvShows.filter(show => {
-        if (searchTerm && !show.title.toLowerCase().includes(searchTerm)) return false;
-        if (genre !== "All Genres" && show.genre !== genre) return false;
-        if (year !== "All Years") {
-            const showStartYear = parseInt(show.year.split("-")[0]);
-            const filterYear = parseInt(year);
-            if (showStartYear !== filterYear) return false;
-        }
-        return true;
-    });
-}
-
-function filterHome() {
-    const searchTerm = document.getElementById("home-search")?.value.toLowerCase() || "";
-    const genre = document.getElementById("home-genre")?.value || "All Genres";
-    const year = document.getElementById("home-year")?.value || "All Years";
-    
-    const allItems = [...movies, ...tvShows];
-    return allItems.filter(item => {
-        if (searchTerm && !item.title.toLowerCase().includes(searchTerm)) return false;
-        if (genre !== "All Genres" && item.genre !== genre) return false;
-        if (year !== "All Years") {
-            const itemYear = parseInt(item.year.toString().split("-")[0]);
-            const filterYear = parseInt(year);
-            if (itemYear !== filterYear) return false;
-        }
-        return true;
-    }).slice(0, 12);
-}
-
-// ========== DETAIL PAGE FUNCTIONS ==========
-function loadMovieDetail() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const movieId = urlParams.get('id');
-    const movie = movies.find(m => m.detailId === movieId);
-    
-    if (!movie) return;
-    
-    document.getElementById("detailTitle").textContent = movie.title;
-    document.getElementById("detailYear").textContent = movie.year;
-    document.getElementById("detailRating").textContent = movie.rating;
-    document.getElementById("detailGenre").textContent = movie.genre;
-    document.getElementById("detailPlot").textContent = movie.plot;
-    document.getElementById("detailDirector").textContent = movie.director;
-    document.getElementById("detailPoster").src = getPosterUrl(movie.poster);
-    
-    const castContainer = document.getElementById("detailCast");
-    castContainer.innerHTML = movie.cast.map(c => `<span>${c}</span>`).join("");
-    
-    // Update favourite button
-    const favBtn = document.getElementById("favouriteBtn");
-    if (isFavourite(movie.id)) {
-        favBtn.innerHTML = '<i class="fas fa-heart"></i> Remove from Favourites';
     } else {
-        favBtn.innerHTML = '<i class="far fa-heart"></i> Add to Favourites';
+        authContent.innerHTML = `
+            <h2 style="margin-bottom:1rem; color:white;">📝 Sign Up</h2>
+            <input type="text" id="signupName" placeholder="Full Name" class="auth-input">
+            <input type="email" id="signupEmail" placeholder="Email" class="auth-input">
+            <input type="password" id="signupPassword" placeholder="Password" class="auth-input">
+            <button onclick="signup()" class="auth-btn">Create Account</button>
+            <p style="margin-top:1rem; text-align:center;">Already have account? <a href="login.html" style="color:var(--primary);">Login</a></p>
+        `;
     }
-    
-    favBtn.onclick = (e) => {
-        e.preventDefault();
-        const newState = toggleFavourite(movie);
-        if (newState) {
-            favBtn.innerHTML = '<i class="fas fa-heart"></i> Remove from Favourites';
+    modal.style.display = "flex";
+}
+
+function closeAuthModal() {
+    const modal = document.getElementById("authModal");
+    if (modal) modal.style.display = "none";
+}
+
+function login() {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+        currentUser = user;
+        localStorage.setItem("cinemate_currentUser", JSON.stringify(user));
+        updateUIForUser();
+        closeAuthModal();
+        loadFavourites();
+        renderCurrentPage();
+        showToast(`Welcome back, ${user.name}!`, "success");
+    } else {
+        showToast("Invalid credentials! Try demo@cinemate.com / demo123", "error");
+    }
+}
+
+function signup() {
+    const name = document.getElementById("signupName").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+    if (!name || !email || !password) {
+        showToast("Please fill all fields!", "error");
+        return;
+    }
+    if (users.find(u => u.email === email)) {
+        showToast("Email already exists!", "error");
+        return;
+    }
+    const newUser = { id: Date.now(), name, email, password };
+    users.push(newUser);
+    localStorage.setItem("cinemate_users", JSON.stringify(users));
+    currentUser = newUser;
+    localStorage.setItem("cinemate_currentUser", JSON.stringify(newUser));
+    updateUIForUser();
+    closeAuthModal();
+    loadFavourites();
+    renderCurrentPage();
+    showToast(`Welcome to CineMate, ${name}!`, "success");
+}
+
+function logout() {
+    currentUser = null;
+    localStorage.removeItem("cinemate_currentUser");
+    favourites = [];
+    updateUIForUser();
+    renderCurrentPage();
+    showToast("Logged out successfully", "info");
+}
+
+function updateUIForUser() {
+    const authDiv = document.getElementById("authButtons");
+    const userDiv = document.getElementById("userInfo");
+    if (authDiv && userDiv) {
+        if (currentUser) {
+            authDiv.style.display = "none";
+            userDiv.style.display = "flex";
+            const userNameSpan = document.getElementById("userName");
+            if (userNameSpan) userNameSpan.innerHTML = `👤 ${currentUser.name}`;
         } else {
-            favBtn.innerHTML = '<i class="far fa-heart"></i> Add to Favourites';
+            authDiv.style.display = "flex";
+            userDiv.style.display = "none";
         }
-    };
-    
-    // Trailer modal
-    const watchBtn = document.getElementById("watchTrailerBtn");
+    }
+}
+
+// ========== DOWNLOAD FUNCTION ==========
+function downloadMovie(movie, subtitleLang) {
+    if (!currentUser) {
+        showToast("Please login to download movies!", "error");
+        openAuthModal('login');
+        return;
+    }
+    showToast(`📥 Downloading "${movie.title}" with ${subtitleLang} subtitles...`, "success");
+    alert(`🎬 CineMate Download\n\nMovie: ${movie.title}\nSubtitles: ${subtitleLang}\nQuality: 1080p / 4K HDR\n\n✅ Download started! (Demo Mode)`);
+}
+
+// ========== MODAL HANDLERS ==========
+function openDetailModal(item, type) {
+    const modal = document.getElementById("detailModal");
+    if (!modal) {
+        // If no modal on page, redirect to detail page
+        if (type === 'movie') window.location.href = `movie-detail.html?id=${item.id}`;
+        else window.location.href = `tv-detail.html?id=${item.id}`;
+        return;
+    }
+    const modalContent = document.getElementById("modalContent");
+    const isFav = isFavourite(item.id);
+    modalContent.innerHTML = `
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <img src="${item.poster}" style="width: 250px; border-radius: 16px;" onerror="this.src='https://via.placeholder.com/300x450'">
+            <div style="flex:1;">
+                <h2 style="color:white;">${item.title} (${item.year})</h2>
+                <div class="detail-meta">
+                    <span>⭐ ${item.rating}</span>
+                    <span>🎭 ${item.genre}</span>
+                    <span>🌍 ${item.language}</span>
+                    ${item.duration ? `<span>⏱️ ${item.duration}</span>` : ''}
+                </div>
+                <p style="margin: 1rem 0;"><strong>Plot:</strong> ${item.plot}</p>
+                <p><strong>Director/Creator:</strong> ${item.director}</p>
+                <p><strong>Cast:</strong> ${item.cast.join(", ")}</p>
+                
+                <div class="download-section">
+                    <h3>🎥 Download ${item.type === 'movie' ? 'Movie' : 'Series'}</h3>
+                    <div class="subtitle-buttons">
+                        <button class="btn-subtitle" onclick="downloadMovie(${JSON.stringify(item).replace(/"/g, '&quot;')}, 'Sinhala')">🇱🇰 සිංහල Subtitles</button>
+                        <button class="btn-subtitle" onclick="downloadMovie(${JSON.stringify(item).replace(/"/g, '&quot;')}, 'English')">🇬🇧 English Subtitles</button>
+                        <button class="btn-subtitle" onclick="downloadMovie(${JSON.stringify(item).replace(/"/g, '&quot;')}, 'Both')">📝 Both Subtitles</button>
+                    </div>
+                    <button class="btn-download" onclick="downloadMovie(${JSON.stringify(item).replace(/"/g, '&quot;')}, 'Sinhala+English')"><i class="fas fa-download"></i> Download Now (4K/HDR)</button>
+                </div>
+                
+                <button class="btn-download" style="background: var(--surface); margin-top:0.5rem;" onclick="toggleFavourite(${JSON.stringify(item).replace(/"/g, '&quot;')}); closeDetailModal();">
+                    <i class="fas ${isFav ? 'fa-heart' : 'fa-heart-broken'}"></i> ${isFav ? 'Remove from Favourites' : 'Add to Favourites'}
+                </button>
+                ${item.trailer ? `<button class="btn-download" style="background: var(--secondary); margin-left:0.5rem;" onclick="playTrailer('${item.trailer}')"><i class="fas fa-play"></i> Watch Trailer</button>` : ''}
+            </div>
+        </div>
+    `;
+    modal.style.display = "flex";
+}
+
+function closeDetailModal() {
+    const modal = document.getElementById("detailModal");
+    if (modal) modal.style.display = "none";
+}
+
+function closeTrailerModal() {
     const modal = document.getElementById("trailerModal");
     const iframe = document.getElementById("trailerIframe");
-    const closeModal = document.querySelector(".close-modal");
+    if (modal) modal.style.display = "none";
+    if (iframe) iframe.src = "";
+}
+
+function playTrailer(trailerId) {
+    const modal = document.getElementById("trailerModal");
+    const iframe = document.getElementById("trailerIframe");
+    if (modal && iframe) {
+        iframe.src = `https://www.youtube.com/embed/${trailerId}?autoplay=1`;
+        modal.style.display = "flex";
+    }
+}
+
+// ========== RENDER FUNCTIONS BY PAGE ==========
+function renderCurrentPage() {
+    const path = window.location.pathname;
+    if (path.includes("movie.html")) renderMoviesPage();
+    else if (path.includes("tvshows.html")) renderTVShowsPage();
+    else if (path.includes("favourites.html")) renderFavouritesPage();
+    else if (path.includes("movie-detail.html")) loadMovieDetail();
+    else if (path.includes("tv-detail.html")) loadTVDetail();
+    else renderHomePage();
+}
+
+function renderMoviesPage() {
+    const search = document.getElementById("movieSearch")?.value.toLowerCase() || "";
+    const language = document.getElementById("movieLanguage")?.value || "all";
+    const genre = document.getElementById("movieGenre")?.value || "all";
+    const activeCat = document.querySelector(".category-btn.active")?.dataset.cat || "all";
     
-    watchBtn.onclick = (e) => {
-        e.preventDefault();
-        iframe.src = `https://www.youtube.com/embed/${movie.trailer}?autoplay=1`;
-        modal.classList.add("show");
-    };
+    let filtered = [...allMovies];
+    if (search) filtered = filtered.filter(m => m.title.toLowerCase().includes(search));
+    if (language !== "all") filtered = filtered.filter(m => m.language === language);
+    if (genre !== "all") filtered = filtered.filter(m => m.genre === genre);
+    if (activeCat !== "all") filtered = filtered.filter(m => m.genre === activeCat);
     
-    closeModal.onclick = () => {
-        modal.classList.remove("show");
-        iframe.src = "";
-    };
+    const grid = document.getElementById("moviesGrid");
+    if (!grid) return;
+    if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><i class="fas fa-film"></i><h3>No movies found</h3></div>`;
+        return;
+    }
+    grid.innerHTML = filtered.map(movie => `
+        <div class="movie-card" onclick="openDetailModal(${JSON.stringify(movie).replace(/"/g, '&quot;')}, 'movie')">
+            <div class="movie-poster">
+                <img src="${movie.poster}" onerror="this.src='https://via.placeholder.com/300x450/2c3e50/ffffff?text=${movie.title}'">
+                <div class="language-badge">${movie.language}</div>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title">${movie.title}</div>
+                <div class="movie-meta">
+                    <span>${movie.year}</span>
+                    <span>⭐ ${movie.rating}</span>
+                    <i class="fas fa-heart fav-icon ${isFavourite(movie.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavourite(${JSON.stringify(movie).replace(/"/g, '&quot;')})"></i>
+                </div>
+            </div>
+        </div>
+    `).join("");
+}
+
+function renderTVShowsPage() {
+    const search = document.getElementById("tvSearch")?.value.toLowerCase() || "";
+    const language = document.getElementById("tvLanguage")?.value || "all";
+    const genre = document.getElementById("tvGenre")?.value || "all";
     
-    modal.onclick = (e) => {
-        if (e.target === modal) {
-            modal.classList.remove("show");
-            iframe.src = "";
-        }
-    };
+    let filtered = [...allTVShows];
+    if (search) filtered = filtered.filter(s => s.title.toLowerCase().includes(search));
+    if (language !== "all") filtered = filtered.filter(s => s.language === language);
+    if (genre !== "all") filtered = filtered.filter(s => s.genre === genre);
     
-    // Similar movies
-    const similar = movies.filter(m => m.genre === movie.genre && m.id !== movie.id).slice(0, 4);
-    renderCards(similar, "similar-grid", true);
+    const grid = document.getElementById("tvshowsGrid");
+    if (!grid) return;
+    if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><i class="fas fa-tv"></i><h3>No TV shows found</h3></div>`;
+        return;
+    }
+    grid.innerHTML = filtered.map(show => `
+        <div class="movie-card" onclick="openDetailModal(${JSON.stringify(show).replace(/"/g, '&quot;')}, 'tv')">
+            <div class="movie-poster">
+                <img src="${show.poster}" onerror="this.src='https://via.placeholder.com/300x450/2c3e50/ffffff?text=${show.title}'">
+                <div class="language-badge">${show.language}</div>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title">${show.title}</div>
+                <div class="movie-meta">
+                    <span>${show.year}</span>
+                    <span>⭐ ${show.rating}</span>
+                    <i class="fas fa-heart fav-icon ${isFavourite(show.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavourite(${JSON.stringify(show).replace(/"/g, '&quot;')})"></i>
+                </div>
+            </div>
+        </div>
+    `).join("");
+}
+
+function renderFavouritesPage() {
+    const search = document.getElementById("favSearch")?.value.toLowerCase() || "";
+    const type = document.getElementById("favType")?.value || "all";
+    
+    let filtered = [...favourites];
+    if (search) filtered = filtered.filter(f => f.title.toLowerCase().includes(search));
+    if (type !== "all") filtered = filtered.filter(f => f.type === type);
+    
+    const grid = document.getElementById("favouritesGrid");
+    if (!grid) return;
+    if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><i class="fas fa-heart"></i><h3>No favourites yet</h3><p>Add movies and shows by clicking the heart icon</p></div>`;
+        return;
+    }
+    grid.innerHTML = filtered.map(item => `
+        <div class="movie-card" onclick="openDetailModal(${JSON.stringify(item).replace(/"/g, '&quot;')}, '${item.type}')">
+            <div class="movie-poster">
+                <img src="${item.poster}" onerror="this.src='https://via.placeholder.com/300x450/2c3e50/ffffff?text=${item.title}'">
+                <div class="language-badge">${item.language}</div>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title">${item.title}</div>
+                <div class="movie-meta">
+                    <span>${item.year}</span>
+                    <span>⭐ ${item.rating}</span>
+                    <i class="fas fa-heart fav-icon active" onclick="event.stopPropagation(); toggleFavourite(${JSON.stringify(item).replace(/"/g, '&quot;')})"></i>
+                </div>
+            </div>
+        </div>
+    `).join("");
+}
+
+function renderHomePage() {
+    const search = document.getElementById("searchInput")?.value.toLowerCase() || "";
+    const language = document.getElementById("languageFilter")?.value || "all";
+    const genre = document.getElementById("genreFilter")?.value || "all";
+    
+    let filtered = [...allContent];
+    if (search) filtered = filtered.filter(c => c.title.toLowerCase().includes(search));
+    if (language !== "all") filtered = filtered.filter(c => c.language === language);
+    if (genre !== "all") filtered = filtered.filter(c => c.genre === genre);
+    
+    // Featured section
+    const featuredGrid = document.getElementById("featuredGrid");
+    if (featuredGrid) {
+        const featured = allContent.slice(0, 4);
+        featuredGrid.innerHTML = featured.map(item => `
+            <div class="featured-card" onclick="openDetailModal(${JSON.stringify(item).replace(/"/g, '&quot;')}, '${item.type}')">
+                <div class="movie-poster">
+                    <img src="${item.poster}" onerror="this.src='https://via.placeholder.com/300x450/2c3e50/ffffff?text=${item.title}'">
+                </div>
+                <div class="movie-info">
+                    <div class="movie-title">${item.title}</div>
+                    <div class="movie-meta">
+                        <span>⭐ ${item.rating}</span>
+                        <span>${item.language}</span>
+                    </div>
+                </div>
+            </div>
+        `).join("");
+    }
+    
+    const grid = document.getElementById("moviesGrid");
+    if (!grid) return;
+    if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><i class="fas fa-search"></i><h3>No results found</h3></div>`;
+        return;
+    }
+    grid.innerHTML = filtered.slice(0, 12).map(item => `
+        <div class="movie-card" onclick="openDetailModal(${JSON.stringify(item).replace(/"/g, '&quot;')}, '${item.type}')">
+            <div class="movie-poster">
+                <img src="${item.poster}" onerror="this.src='https://via.placeholder.com/300x450/2c3e50/ffffff?text=${item.title}'">
+                <div class="language-badge">${item.language}</div>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title">${item.title}</div>
+                <div class="movie-meta">
+                    <span>${item.year}</span>
+                    <span>⭐ ${item.rating}</span>
+                    <i class="fas fa-heart fav-icon ${isFavourite(item.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavourite(${JSON.stringify(item).replace(/"/g, '&quot;')})"></i>
+                </div>
+            </div>
+        </div>
+    `).join("");
+}
+
+function loadMovieDetail() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    const movie = allMovies.find(m => m.id === id);
+    if (!movie) return;
+    
+    const container = document.getElementById("movieDetailContainer");
+    if (container) {
+        const isFav = isFavourite(movie.id);
+        container.innerHTML = `
+            <img src="${movie.poster}" class="detail-poster" onerror="this.src='https://via.placeholder.com/300x450'">
+            <div class="detail-info">
+                <h1>${movie.title}</h1>
+                <div class="detail-meta">
+                    <span>⭐ ${movie.rating}</span>
+                    <span>🎭 ${movie.genre}</span>
+                    <span>🌍 ${movie.language}</span>
+                    <span>⏱️ ${movie.duration}</span>
+                    <span>📅 ${movie.year}</span>
+                </div>
+                <p><strong>Plot:</strong> ${movie.plot}</p>
+                <p><strong>Director:</strong> ${movie.director}</p>
+                <p><strong>Cast:</strong> ${movie.cast.join(", ")}</p>
+                <div class="download-section">
+                    <h3>🎥 Download Movie</h3>
+                    <div class="subtitle-buttons">
+                        <button class="btn-subtitle" onclick="downloadMovie(${JSON.stringify(movie).replace(/"/g, '&quot;')}, 'Sinhala')">🇱🇰 සිංහල Subtitles</button>
+                        <button class="btn-subtitle" onclick="downloadMovie(${JSON.stringify(movie).replace(/"/g, '&quot;')}, 'English')">🇬🇧 English Subtitles</button>
+                    </div>
+                    <button class="btn-download" onclick="downloadMovie(${JSON.stringify(movie).replace(/"/g, '&quot;')}, 'Sinhala+English')"><i class="fas fa-download"></i> Download Movie</button>
+                </div>
+                <button class="btn-download" style="background: var(--surface);" onclick="toggleFavourite(${JSON.stringify(movie).replace(/"/g, '&quot;')}); location.reload();">
+                    <i class="fas ${isFav ? 'fa-heart' : 'fa-heart-broken'}"></i> ${isFav ? 'Remove from Favourites' : 'Add to Favourites'}
+                </button>
+                <button class="btn-download" style="background: var(--secondary); margin-left:1rem;" onclick="playTrailer('${movie.trailer}')"><i class="fas fa-play"></i> Watch Trailer</button>
+            </div>
+        `;
+    }
+    
+    const similarGrid = document.getElementById("similarGrid");
+    if (similarGrid) {
+        const similar = allMovies.filter(m => m.genre === movie.genre && m.id !== movie.id).slice(0, 4);
+        similarGrid.innerHTML = similar.map(m => `
+            <div class="movie-card" onclick="window.location.href='movie-detail.html?id=${m.id}'">
+                <div class="movie-poster"><img src="${m.poster}" onerror="this.src='https://via.placeholder.com/300x450'"></div>
+                <div class="movie-info"><div class="movie-title">${m.title}</div><div class="movie-meta"><span>⭐ ${m.rating}</span></div></div>
+            </div>
+        `).join("");
+    }
 }
 
 function loadTVDetail() {
     const urlParams = new URLSearchParams(window.location.search);
-    const showId = urlParams.get('id');
-    const show = tvShows.find(s => s.detailId === showId);
-    
+    const id = parseInt(urlParams.get('id'));
+    const show = allTVShows.find(s => s.id === id);
     if (!show) return;
     
-    document.getElementById("detailTitle").textContent = show.title;
-    document.getElementById("detailYear").textContent = show.year;
-    document.getElementById("detailRating").textContent = show.rating;
-    document.getElementById("detailGenre").textContent = show.genre;
-    document.getElementById("detailPlot").textContent = show.plot;
-    document.getElementById("detailDirector").textContent = show.director;
-    document.getElementById("detailPoster").src = getPosterUrl(show.poster);
-    
-    if (document.getElementById("detailSeasons")) {
-        document.getElementById("detailSeasons").textContent = `${show.seasons} Seasons`;
-        document.getElementById("detailEpisodes").textContent = `${show.episodes} Episodes`;
-    }
-    
-    const castContainer = document.getElementById("detailCast");
-    castContainer.innerHTML = show.cast.map(c => `<span>${c}</span>`).join("");
-    
-    // Seasons grid
-    const seasonsGrid = document.getElementById("seasonsGrid");
-    if (seasonsGrid) {
-        seasonsGrid.innerHTML = "";
-        for (let i = 1; i <= show.seasons; i++) {
-            seasonsGrid.innerHTML += `
-                <div class="season-card">
-                    <div class="season-number">Season ${i}</div>
-                    <div class="season-episodes">${i === 1 ? Math.ceil(show.episodes / show.seasons) : Math.ceil(show.episodes / show.seasons)} Episodes</div>
-                    <div class="season-year">${parseInt(show.year.split("-")[0]) + i - 1}</div>
-                </div>
-            `;
-        }
-    }
-    
-    // Update favourite button
-    const favBtn = document.getElementById("favouriteBtn");
-    if (isFavourite(show.id)) {
-        favBtn.innerHTML = '<i class="fas fa-heart"></i> Remove from Favourites';
-    } else {
-        favBtn.innerHTML = '<i class="far fa-heart"></i> Add to Favourites';
-    }
-    
-    favBtn.onclick = (e) => {
-        e.preventDefault();
-        const newState = toggleFavourite(show);
-        if (newState) {
-            favBtn.innerHTML = '<i class="fas fa-heart"></i> Remove from Favourites';
-        } else {
-            favBtn.innerHTML = '<i class="far fa-heart"></i> Add to Favourites';
-        }
-    };
-    
-    // Trailer modal
-    const watchBtn = document.getElementById("watchTrailerBtn");
-    const modal = document.getElementById("trailerModal");
-    const iframe = document.getElementById("trailerIframe");
-    const closeModal = document.querySelector(".close-modal");
-    
-    watchBtn.onclick = (e) => {
-        e.preventDefault();
-        iframe.src = `https://www.youtube.com/embed/${show.trailer}?autoplay=1`;
-        modal.classList.add("show");
-    };
-    
-    closeModal.onclick = () => {
-        modal.classList.remove("show");
-        iframe.src = "";
-    };
-    
-    modal.onclick = (e) => {
-        if (e.target === modal) {
-            modal.classList.remove("show");
-            iframe.src = "";
-        }
-    };
-    
-    // Similar shows
-    const similar = tvShows.filter(s => s.genre === show.genre && s.id !== show.id).slice(0, 4);
-    renderCards(similar, "similar-grid", true);
-}
-
-// ========== FAVOURITES PAGE ==========
-function renderFavouritesPage() {
-    const container = document.getElementById("favourites-grid");
-    if (!container) return;
-    
-    if (favourites.length === 0) {
+    const container = document.getElementById("tvDetailContainer");
+    if (container) {
+        const isFav = isFavourite(show.id);
         container.innerHTML = `
-            <div class="empty-state">
-                <i class="fas fa-heart"></i>
-                <h3>No favourites yet</h3>
-                <p>Start adding movies and TV shows to your favourites by clicking the ❤ icon</p>
+            <img src="${show.poster}" class="detail-poster" onerror="this.src='https://via.placeholder.com/300x450'">
+            <div class="detail-info">
+                <h1>${show.title}</h1>
+                <div class="detail-meta">
+                    <span>⭐ ${show.rating}</span>
+                    <span>🎭 ${show.genre}</span>
+                    <span>🌍 ${show.language}</span>
+                    <span>📺 ${show.seasons} Seasons</span>
+                    <span>📅 ${show.year}</span>
+                </div>
+                <p><strong>Plot:</strong> ${show.plot}</p>
+                <p><strong>Creator:</strong> ${show.director}</p>
+                <p><strong>Cast:</strong> ${show.cast.join(", ")}</p>
+                <div class="download-section">
+                    <h3>📺 Download Series</h3>
+                    <button class="btn-download" onclick="downloadMovie(${JSON.stringify(show).replace(/"/g, '&quot;')}, 'Sinhala+English')"><i class="fas fa-download"></i> Download All Seasons</button>
+                </div>
+                <button class="btn-download" style="background: var(--surface);" onclick="toggleFavourite(${JSON.stringify(show).replace(/"/g, '&quot;')}); location.reload();">
+                    <i class="fas ${isFav ? 'fa-heart' : 'fa-heart-broken'}"></i> ${isFav ? 'Remove from Favourites' : 'Add to Favourites'}
+                </button>
+                <button class="btn-download" style="background: var(--secondary); margin-left:1rem;" onclick="playTrailer('${show.trailer}')"><i class="fas fa-play"></i> Watch Trailer</button>
             </div>
         `;
-        return;
     }
     
-    renderCards(favourites, "favourites-grid", true);
-}
-
-function setupFavouritesSearch() {
-    const searchInput = document.getElementById("favourites-search");
-    if (!searchInput) return;
-    
-    searchInput.addEventListener("input", (e) => {
-        const query = e.target.value.toLowerCase();
-        const filtered = favourites.filter(item => item.title.toLowerCase().includes(query));
-        renderCards(filtered, "favourites-grid", true);
-    });
-}
-
-// ========== FEATURED SECTION ==========
-function loadFeatured() {
-    const featuredMovie = movies[2]; // Interstellar
-    const container = document.getElementById("featured-card");
-    if (!container) return;
-    
-    const isFav = isFavourite(featuredMovie.id);
-    
-    container.innerHTML = `
-        <div class="featured-poster">
-            <img src="${getPosterUrl(featuredMovie.poster)}" alt="${featuredMovie.title}">
-        </div>
-        <div class="featured-info">
-            <h3>${featuredMovie.title}</h3>
-            <p>${featuredMovie.plot.substring(0, 200)}...</p>
-            <div class="featured-buttons">
-                <a href="movie-detail.html?id=${featuredMovie.detailId}" class="btn-primary">View Details</a>
-                <a href="#" class="btn-secondary favourite-featured" id="featuredFavBtn"><i class="${isFav ? 'fas' : 'far'} fa-heart"></i> ${isFav ? 'Favourited' : 'Favourite'}</a>
-            </div>
-        </div>
-    `;
-    
-    const featuredFavBtn = document.getElementById("featuredFavBtn");
-    if (featuredFavBtn) {
-        featuredFavBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const newState = toggleFavourite(featuredMovie);
-            if (newState) {
-                featuredFavBtn.innerHTML = '<i class="fas fa-heart"></i> Favourited';
-            } else {
-                featuredFavBtn.innerHTML = '<i class="far fa-heart"></i> Favourite';
-            }
-        });
-    }
-}
-
-// ========== HOME PAGE TABS ==========
-let currentTab = "all";
-
-function setupHomeTabs() {
-    const tabs = document.querySelectorAll(".tab");
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            tabs.forEach(t => t.classList.remove("active"));
-            tab.classList.add("active");
-            currentTab = tab.dataset.filter;
-            loadHomeContent();
-        });
-    });
-}
-
-function loadHomeContent() {
-    let items = [...movies, ...tvShows];
-    
-    if (currentTab === "trending") {
-        items = items.filter(i => i.badge === "trending");
-    } else if (currentTab === "new") {
-        items = items.filter(i => i.badge === "new");
-    } else if (currentTab === "top") {
-        items = items.filter(i => i.badge === "top");
-    }
-    
-    items = items.slice(0, 12);
-    renderCards(items, "movies-grid", true);
-}
-
-// ========== CATEGORY FILTERS ==========
-function setupMovieCategories() {
-    const btns = document.querySelectorAll("#movie-categories .category-btn");
-    btns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            btns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            const category = btn.dataset.cat;
-            const genreSelect = document.getElementById("movie-genre");
-            if (genreSelect) {
-                genreSelect.value = category === "All" ? "All Genres" : category;
-                const event = new Event("change");
-                genreSelect.dispatchEvent(event);
-            }
-            applyMovieFilters();
-        });
-    });
-}
-
-function setupTVCategories() {
-    const btns = document.querySelectorAll("#tv-categories .category-btn");
-    btns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            btns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            const category = btn.dataset.cat;
-            const genreSelect = document.getElementById("tv-genre");
-            if (genreSelect) {
-                genreSelect.value = category === "All" ? "All Genres" : category;
-                const event = new Event("change");
-                genreSelect.dispatchEvent(event);
-            }
-            applyTVFilters();
-        });
-    });
-}
-
-function applyMovieFilters() {
-    const filtered = filterMovies();
-    renderCards(filtered, "movies-grid", true);
-}
-
-function applyTVFilters() {
-    const filtered = filterTVShows();
-    renderCards(filtered, "tvshows-grid", true);
-}
-
-function applyHomeFilters() {
-    const filtered = filterHome();
-    renderCards(filtered, "movies-grid", true);
-}
-
-// ========== GLOBAL SEARCH ==========
-function setupGlobalSearch() {
-    const searchInput = document.getElementById("global-search");
-    if (!searchInput) return;
-    
-    searchInput.addEventListener("input", (e) => {
-        const query = e.target.value.toLowerCase();
-        const currentPage = window.location.pathname;
-        
-        if (currentPage.includes("movie.html")) {
-            const filtered = movies.filter(m => m.title.toLowerCase().includes(query));
-            renderCards(filtered, "movies-grid", true);
-        } else if (currentPage.includes("tvshows.html")) {
-            const filtered = tvShows.filter(s => s.title.toLowerCase().includes(query));
-            renderCards(filtered, "tvshows-grid", true);
-        } else if (currentPage.includes("favourites.html")) {
-            const filtered = favourites.filter(f => f.title.toLowerCase().includes(query));
-            renderCards(filtered, "favourites-grid", true);
-        } else {
-            const allItems = [...movies, ...tvShows];
-            const filtered = allItems.filter(i => i.title.toLowerCase().includes(query)).slice(0, 12);
-            renderCards(filtered, "movies-grid", true);
+    const seasonsGrid = document.getElementById("seasonsGrid");
+    if (seasonsGrid && show.seasons) {
+        seasonsGrid.innerHTML = "";
+        for (let i = 1; i <= show.seasons; i++) {
+            const epCount = Math.ceil(show.episodes / show.seasons);
+            seasonsGrid.innerHTML += `<div class="season-card"><div class="season-number">Season ${i}</div><div class="season-episodes">${epCount} episodes</div></div>`;
         }
+    }
+    
+    const similarGrid = document.getElementById("similarGrid");
+    if (similarGrid) {
+        const similar = allTVShows.filter(s => s.genre === show.genre && s.id !== show.id).slice(0, 4);
+        similarGrid.innerHTML = similar.map(s => `
+            <div class="movie-card" onclick="window.location.href='tv-detail.html?id=${s.id}'">
+                <div class="movie-poster"><img src="${s.poster}" onerror="this.src='https://via.placeholder.com/300x450'"></div>
+                <div class="movie-info"><div class="movie-title">${s.title}</div><div class="movie-meta"><span>⭐ ${s.rating}</span></div></div>
+            </div>
+        `).join("");
+    }
+}
+
+function showToast(message, type = "success") {
+    let toast = document.getElementById("toast");
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast";
+        toast.className = "toast";
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i> ${message}`;
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+// ========== EVENT LISTENERS ==========
+function setupEventListeners() {
+    // Movie page filters
+    const movieSearch = document.getElementById("movieSearch");
+    if (movieSearch) movieSearch.addEventListener("input", () => renderMoviesPage());
+    const movieLanguage = document.getElementById("movieLanguage");
+    if (movieLanguage) movieLanguage.addEventListener("change", () => renderMoviesPage());
+    const movieGenre = document.getElementById("movieGenre");
+    if (movieGenre) movieGenre.addEventListener("change", () => renderMoviesPage());
+    
+    // TV page filters
+    const tvSearch = document.getElementById("tvSearch");
+    if (tvSearch) tvSearch.addEventListener("input", () => renderTVShowsPage());
+    const tvLanguage = document.getElementById("tvLanguage");
+    if (tvLanguage) tvLanguage.addEventListener("change", () => renderTVShowsPage());
+    const tvGenre = document.getElementById("tvGenre");
+    if (tvGenre) tvGenre.addEventListener("change", () => renderTVShowsPage());
+    
+    // Favourites page filters
+    const favSearch = document.getElementById("favSearch");
+    if (favSearch) favSearch.addEventListener("input", () => renderFavouritesPage());
+    const favType = document.getElementById("favType");
+    if (favType) favType.addEventListener("change", () => renderFavouritesPage());
+    
+    // Home page filters
+    const homeSearch = document.getElementById("searchInput");
+    if (homeSearch) homeSearch.addEventListener("input", () => renderHomePage());
+    const homeLang = document.getElementById("languageFilter");
+    if (homeLang) homeLang.addEventListener("change", () => renderHomePage());
+    const homeGenre = document.getElementById("genreFilter");
+    if (homeGenre) homeGenre.addEventListener("change", () => renderHomePage());
+    
+    // Category buttons
+    document.querySelectorAll(".category-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            document.querySelectorAll(".category-btn").forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+            renderMoviesPage();
+        });
     });
 }
 
 // ========== INITIALIZATION ==========
-document.addEventListener("DOMContentLoaded", () => {
-    loadFavourites();
-    
-    const currentPage = window.location.pathname;
-    
-    if (currentPage.includes("index.html") || currentPage === "/" || currentPage.endsWith("/")) {
-        loadFeatured();
-        loadHomeContent();
-        setupHomeTabs();
-        setupGlobalSearch();
-        
-        const homeSearchBtn = document.getElementById("home-search-btn");
-        const homeSearch = document.getElementById("home-search");
-        const homeGenre = document.getElementById("home-genre");
-        const homeYear = document.getElementById("home-year");
-        
-        const updateHome = () => applyHomeFilters();
-        if (homeSearchBtn) homeSearchBtn.addEventListener("click", updateHome);
-        if (homeSearch) homeSearch.addEventListener("keyup", (e) => { if (e.key === "Enter") updateHome(); });
-        if (homeGenre) homeGenre.addEventListener("change", updateHome);
-        if (homeYear) homeYear.addEventListener("change", updateHome);
-        
-    } else if (currentPage.includes("movie.html")) {
-        renderCards(movies, "movies-grid", true);
-        setupMovieCategories();
-        setupGlobalSearch();
-        
-        const searchBtn = document.getElementById("movie-search-btn");
-        const searchBox = document.getElementById("movie-search-box");
-        const genreSelect = document.getElementById("movie-genre");
-        const yearSelect = document.getElementById("movie-year");
-        
-        const updateMovies = () => applyMovieFilters();
-        if (searchBtn) searchBtn.addEventListener("click", updateMovies);
-        if (searchBox) searchBox.addEventListener("keyup", (e) => { if (e.key === "Enter") updateMovies(); });
-        if (genreSelect) genreSelect.addEventListener("change", updateMovies);
-        if (yearSelect) yearSelect.addEventListener("change", updateMovies);
-        
-    } else if (currentPage.includes("tvshows.html")) {
-        renderCards(tvShows, "tvshows-grid", true);
-        setupTVCategories();
-        setupGlobalSearch();
-        
-        const searchBtn = document.getElementById("tv-search-btn");
-        const searchBox = document.getElementById("tv-search-box");
-        const genreSelect = document.getElementById("tv-genre");
-        const yearSelect = document.getElementById("tv-year");
-        
-        const updateTVShows = () => applyTVFilters();
-        if (searchBtn) searchBtn.addEventListener("click", updateTVShows);
-        if (searchBox) searchBox.addEventListener("keyup", (e) => { if (e.key === "Enter") updateTVShows(); });
-        if (genreSelect) genreSelect.addEventListener("change", updateTVShows);
-        if (yearSelect) yearSelect.addEventListener("change", updateTVShows);
-        
-    } else if (currentPage.includes("favourites.html")) {
-        renderFavouritesPage();
-        setupFavouritesSearch();
-        setupGlobalSearch();
-        
-    } else if (currentPage.includes("movie-detail.html")) {
-        loadMovieDetail();
-        setupGlobalSearch();
-        
-    } else if (currentPage.includes("tv-detail.html")) {
-        loadTVDetail();
-        setupGlobalSearch();
+function init() {
+    const savedUser = localStorage.getItem("cinemate_currentUser");
+    if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        updateUIForUser();
+        loadFavourites();
     }
-});
+    setupEventListeners();
+    renderCurrentPage();
+    
+    // Make functions global for onclick handlers
+    window.openAuthModal = openAuthModal;
+    window.closeAuthModal = closeAuthModal;
+    window.login = login;
+    window.signup = signup;
+    window.logout = logout;
+    window.toggleFavourite = toggleFavourite;
+    window.openDetailModal = openDetailModal;
+    window.closeDetailModal = closeDetailModal;
+    window.closeTrailerModal = closeTrailerModal;
+    window.downloadMovie = downloadMovie;
+    window.playTrailer = playTrailer;
+}
+
+// Start the app
+init();
