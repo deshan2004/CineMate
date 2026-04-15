@@ -2,128 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Cine Mate - TV Show Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMate - TV Show Details</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo">Cine Mate</div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="movie.html">Movies</a></li>
-                    <li><a href="tvshows.html">TV Shows</a></li>
-                    <li><a href="favourites.html">Favourites</a></li>
-                </ul>
+            <div class="logo">🎬 CineMate</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movie.html">Movies</a></li>
+                <li><a href="tvshows.html">TV Shows</a></li>
+                <li><a href="favourites.html">Favourites</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn-login" onclick="openAuthModal('login')">Login</button>
+                <button class="btn-signup" onclick="openAuthModal('signup')">Sign Up</button>
             </div>
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" placeholder="Search..." class="search-input" id="global-search">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span id="userName"></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
             </div>
         </div>
     </nav>
 
-    <section class="movie-detail-section">
+    <div class="movie-detail-section">
         <div class="container">
-            <div class="movie-detail-container">
-                <div class="movie-detail-poster">
-                    <img id="detailPoster" src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="TV Show Poster">
-                </div>
-                <div class="movie-detail-info">
-                    <h1 id="detailTitle">Breaking Bad</h1>
-                    <div class="detail-meta">
-                        <span class="detail-year" id="detailYear">2008-2013</span>
-                        <span class="detail-rating"><i class="fas fa-star"></i> <span id="detailRating">9.5</span></span>
-                        <span class="detail-genre" id="detailGenre">Drama</span>
-                        <span class="detail-seasons" id="detailSeasons">5 Seasons</span>
-                        <span class="detail-episodes" id="detailEpisodes">62 Episodes</span>
-                    </div>
-                    <div class="detail-plot">
-                        <h3>Plot</h3>
-                        <p id="detailPlot">A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future. With his former student, Jesse Pinkman, they create a drug empire that puts them at odds with dangerous cartels and law enforcement.</p>
-                    </div>
-                    <div class="detail-cast">
-                        <h3>Cast</h3>
-                        <div class="cast-list" id="detailCast">
-                            <span>Bryan Cranston</span>
-                            <span>Aaron Paul</span>
-                            <span>Anna Gunn</span>
-                            <span>Dean Norris</span>
-                            <span>Betsy Brandt</span>
-                            <span>RJ Mitte</span>
-                            <span>Giancarlo Esposito</span>
-                        </div>
-                    </div>
-                    <div class="detail-director">
-                        <h3>Creator</h3>
-                        <p id="detailDirector">Vince Gilligan</p>
-                    </div>
-                    <div class="detail-buttons">
-                        <a href="#" class="btn-primary watch-trailer" id="watchTrailerBtn"><i class="fas fa-play"></i> Watch Trailer</a>
-                        <a href="#" class="btn-secondary" id="favouriteBtn"><i class="far fa-heart"></i> Add to Favourites</a>
-                    </div>
-                </div>
+            <div id="tvDetailContainer" class="movie-detail-container"></div>
+            <div class="seasons-section">
+                <h2 class="section-title">📅 Seasons</h2>
+                <div id="seasonsGrid" class="seasons-grid"></div>
             </div>
-
-            <div id="trailerModal" class="modal">
-                <div class="modal-content trailer-modal">
-                    <span class="close-modal">&times;</span>
-                    <div class="trailer-container">
-                        <iframe id="trailerIframe" src="https://www.youtube.com/embed/HhesaQXLuRY" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="seasons-section" id="seasonsSection">
-                <h2 class="section-title">Seasons</h2>
-                <div id="seasonsGrid" class="seasons-grid">
-                    <!-- Seasons will be loaded by JavaScript -->
-                </div>
-            </div>
-
-            <div class="similar-movies">
-                <h2 class="section-title">You Might Also Like</h2>
-                <div id="similar-grid" class="movie-grid">
-                    <!-- Similar shows will be loaded by JavaScript -->
-                </div>
+            <div class="similar-section">
+                <h2 class="section-title">📺 More Like This</h2>
+                <div id="similarGrid" class="movie-grid"></div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div id="trailerModal" class="modal">
+        <div class="modal-content trailer-modal">
+            <span class="close-modal" onclick="closeTrailerModal()">&times;</span>
+            <div class="trailer-container">
+                <iframe id="trailerIframe" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>Cine Mate</h3>
-                <p>A movie and TV show discovery app built as part of the Web Architectures course. Explore the latest movies and TV shows with beautiful visuals and detailed information.</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h4>PAGES</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="movie.html">Movies</a></li>
-                        <li><a href="tvshows.html">TV Shows</a></li>
-                        <li><a href="favourites.html">Favourites</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>RESOURCES</h4>
-                    <ul>
-                        <li><a href="#">GitHub Repo</a></li>
-                        <li><a href="#">TMDB API</a></li>
-                        <li><a href="#">MDN Docs</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Cine Mate. All rights reserved.</p>
-        </div>
+        <p>CineMate - Global Cinema Hub</p>
     </footer>
 
+    <div id="toast" class="toast"></div>
     <script src="js/app.js"></script>
 </body>
 </html>

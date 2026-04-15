@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMate - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Video Background Styles */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: -1;
+        }
+        
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .auth-card {
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .auth-logo {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(52, 73, 94, 0.9);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-muted);
+        }
+        
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .error-message {
+            background: rgba(255, 107, 107, 0.2);
+            border-left: 4px solid #ff6b6b;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .success-message {
+            background: rgba(16, 172, 132, 0.2);
+            border-left: 4px solid #10ac84;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .password-strength {
+            font-size: 0.7rem;
+            margin-top: 0.3rem;
+        }
+        
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .terms label {
+            font-size: 0.8rem;
+        }
+        
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            justify-content: center;
+        }
+        
+        .feature-list span {
+            background: rgba(255,255,255,0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-film-reel-with-popcorn-and-clapperboard-32884-large.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-theatre-curtains-32939-large.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay"></div>
+
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-logo">🎬 CineMate</div>
+            <h1 class="auth-title">Create Account</h1>
+            
+            <div id="messageDiv"></div>
+            
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password" required onkeyup="checkPasswordStrength()">
+                    <div class="password-strength" id="passwordStrength"></div>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="termsCheckbox" required>
+                    <label>I agree to the Terms of Service and Privacy Policy</label>
+                </div>
+                <button type="submit" class="auth-btn"><i class="fas fa-user-plus"></i> Sign Up for Free</button>
+            </form>
+            
+            <div class="feature-list">
+                <span>🎬 50+ Movies</span>
+                <span>📺 35+ TV Shows</span>
+                <span>🌍 15+ Languages</span>
+                <span>📝 Sinhala/English Subs</span>
+                <span>⬇️ Free Downloads</span>
+            </div>
+            
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Login Here</a><br>
+                <a href="index.html" style="font-size: 0.8rem;">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        function showToast(message, type = "success") {
+            const toast = document.getElementById("toast");
+            toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${message}`;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        function checkPasswordStrength() {
+            const password = document.getElementById("signupPassword").value;
+            const strengthDiv = document.getElementById("passwordStrength");
+            
+            if (password.length === 0) {
+                strengthDiv.innerHTML = "";
+                return;
+            }
+            
+            let strength = 0;
+            if (password.length >= 6) strength++;
+            if (password.length >= 10) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            const strengthText = ["Very Weak", "Weak", "Fair", "Good", "Strong"];
+            const strengthColor = ["#ff6b6b", "#ffa502", "#feca57", "#0abde3", "#10ac84"];
+            
+            strengthDiv.innerHTML = `Password Strength: <span style="color: ${strengthColor[strength]}">${strengthText[strength]}</span>`;
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("signupName").value.trim();
+            const email = document.getElementById("signupEmail").value.trim();
+            const password = document.getElementById("signupPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const terms = document.getElementById("termsCheckbox").checked;
+            const messageDiv = document.getElementById("messageDiv");
+            
+            if (name.length < 2) {
+                messageDiv.innerHTML = "<div class='error-message'><i class='fas fa-exclamation-triangle'></i> Please enter your full name</div>";
+                setTimeout(() => messageDiv.innerHTML = "", 3000);
+                return;
+            }
+            
+            if (!email.includes("@") || !email.includes(".")) {
+                messageDiv.innerHTML = "<div class='error-message'><i class='fas fa-exclamation-triangle'></i> Please enter a valid email address</div>";
+                setTimeout(() => messageDiv.innerHTML = "", 3000);
+                return;
+            }
+            
+            if (password.length < 6) {
+                messageDiv.innerHTML = "<div class='error-message'><i class='fas fa-exclamation-triangle'></i> Password must be at least 6 characters</div>";
+                setTimeout(() => messageDiv.innerHTML = "", 3000);
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                messageDiv.innerHTML = "<div class='error-message'><i class='fas fa-exclamation-triangle'></i> Passwords do not match</div>";
+                setTimeout(() => messageDiv.innerHTML = "", 3000);
+                return;
+            }
+            
+            if (!terms) {
+                messageDiv.innerHTML = "<div class='error-message'><i class='fas fa-exclamation-triangle'></i> Please accept the Terms of Service</div>";
+                setTimeout(() => messageDiv.innerHTML = "", 3000);
+                return;
+            }
+            
+            let users = JSON.parse(localStorage.getItem("cinemate_users") || "[]");
+            
+            if (users.find(u => u.email === email)) {
+                messageDiv.innerHTML = "<div class='error-message'><i class='fas fa-exclamation-triangle'></i> Email already registered. Please login instead.</div>";
+                setTimeout(() => messageDiv.innerHTML = "", 3000);
+                return;
+            }
+            
+            const newUser = {
+                id: Date.now(),
+                name: name,
+                email: email,
+                password: password,
+                joinDate: new Date().toISOString()
+            };
+            
+            users.push(newUser);
+            localStorage.setItem("cinemate_users", JSON.stringify(users));
+            localStorage.setItem("cinemate_currentUser", JSON.stringify(newUser));
+            
+            messageDiv.innerHTML = "<div class='success-message'><i class='fas fa-check-circle'></i> Account created successfully! Redirecting...</div>";
+            showToast(`Welcome to CineMate, ${name}!`, "success");
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+        }
+        
+        const currentUser = localStorage.getItem("cinemate_currentUser");
+        if (currentUser) {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

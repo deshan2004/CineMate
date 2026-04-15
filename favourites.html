@@ -2,75 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Cine Mate - Favourites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMate - Favourites</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo">Cine Mate</div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="movie.html">Movies</a></li>
-                    <li><a href="tvshows.html">TV Shows</a></li>
-                    <li><a href="favourites.html" class="active">Favourites</a></li>
-                </ul>
+            <div class="logo">🎬 CineMate</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movie.html">Movies</a></li>
+                <li><a href="tvshows.html">TV Shows</a></li>
+                <li><a href="favourites.html" class="active">Favourites</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn-login" onclick="openAuthModal('login')">Login</button>
+                <button class="btn-signup" onclick="openAuthModal('signup')">Sign Up</button>
             </div>
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" placeholder="Search favourites..." class="search-input" id="favourites-search">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span id="userName"></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
             </div>
         </div>
     </nav>
 
-    <div class="page-header favourites-header">
-        <h1>Your Favourites</h1>
-        <p>Movies and shows you've saved - they'll appear here</p>
+    <div class="page-header">
+        <h1>❤️ Your Favourites</h1>
+        <p>Movies and shows you've saved</p>
     </div>
 
-    <section class="content-section">
-        <div class="container">
-            <div id="favourites-grid" class="movie-grid">
-                <!-- Favourites will be rendered here by JavaScript -->
+    <div class="filters">
+        <div class="filters-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="favSearch" placeholder="Search favourites...">
             </div>
+            <select id="favType" class="filter-select">
+                <option value="all">All</option>
+                <option value="movie">Movies Only</option>
+                <option value="tv">TV Shows Only</option>
+            </select>
         </div>
-    </section>
+    </div>
+
+    <div class="content-section">
+        <div class="container">
+            <div id="favouritesGrid" class="movie-grid"></div>
+        </div>
+    </div>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>Cine Mate</h3>
-                <p>A movie and TV show discovery app built as part of the Web Architectures course. Explore the latest movies and TV shows with beautiful visuals and detailed information.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">🍿 38+ Movies | 📺 32+ TV Shows | ⭐ 8+ Genres</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h4>PAGES</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="movie.html">Movies</a></li>
-                        <li><a href="tvshows.html">TV Shows</a></li>
-                        <li><a href="favourites.html">Favourites</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>RESOURCES</h4>
-                    <ul>
-                        <li><a href="#">GitHub Repo</a></li>
-                        <li><a href="#">TMDB API</a></li>
-                        <li><a href="#">MDN Docs</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Cine Mate. All rights reserved.</p>
-        </div>
+        <p>CineMate - Global Cinema Hub</p>
     </footer>
 
+    <div id="toast" class="toast"></div>
     <script src="js/app.js"></script>
 </body>
 </html>
